@@ -106,3 +106,16 @@ function getArticle($id)
     }
     $req->closeCursor();
 }
+
+/**
+ * Fonction qui permet de récupérer les utilisateurs.
+ */
+function getUsers()
+{
+    require 'config/connect.php';
+    $req = $bdd->prepare('SELECT * FROM users ORDER BY id DESC');
+    $req->execute();
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->closeCursor();
+}
