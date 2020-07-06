@@ -227,12 +227,12 @@ body {
       color: lightblue;
 }
 
-.post-description img {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+.post-description .article img {
+    border-radius: 5px;
     width: 100px;
     height: 100px;
     float: left;
+    margin-right: 5px;
 }
 
 .post-description .post-info {
@@ -243,6 +243,13 @@ body {
     color: rgb(78, 250, 241);
 }
 
+.post-description .article {
+    padding: 10px;
+}
+
+.article-content {
+    margin-top: 2px;
+}
 /* FOOTER */
 
 .footer {

@@ -81,10 +81,18 @@ $articles = getArticles();
         <div class="post-description">
             <h3>Nos Articles :</h3><br>
             <?php foreach($articles as $article):?>
-                <?= showArticle($article) ?>
-                <p><?= tronque_chaine($article->content, 70) ?></p>
-                <a href="#" class="continued">Lire la suite</a>
-                <br><br><br>
+                <div class="article">
+                    <img src="<?= $article->path_img ?>" />
+                    <div class="article-content">
+                        <h4><?= $article->title ?></h4>
+                        <i class="fa fa-user-o"></i> <?= $article->author?>
+                        &nbsp;
+                        <i class="fa fa-calendar"></i> <?= $article->publication_time?>
+                        <p><?= tronque_chaine($article->content) ?></p>
+                        <a href="#" class="continued">Lire la suite</a>
+                        <br><br><br>
+                    </div>
+                </div>
             <?php endforeach;?>
         </div>
     </div>
