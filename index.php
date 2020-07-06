@@ -15,8 +15,8 @@ $articles = getArticles();
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io//favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
 </head>
 
@@ -65,10 +65,9 @@ $articles = getArticles();
                     <i class="fa fa-chevron-left prev"></i>
 
                     <div class="posts-wrapper">
-                        <?= showArticle($articles[0]) ?>
-                        <?= showArticle($articles[1]) ?>
-                        <?= showArticle($articles[2]) ?>
-                        <?= showArticle($articles[3]) ?>
+                        <?php foreach($articles as $article):?>
+                            <?= showArticle($article) ?>
+                        <?php endforeach;?>
                     </div>
                 </div>
             </div>
@@ -81,10 +80,12 @@ $articles = getArticles();
         pour obtenir le chemin où se situe l'image de l'article -->
         <div class="post-description">
             <h3>Nos Articles :</h3><br>
-            <?= showArticle($articles[0]) ?>
-            <p><?= tronque_chaine($articles[0]->content, 70) ?></p>
-            <a href="#" class="continued">Lire la suite</a>
-            <br><br><br>
+            <?php foreach($articles as $article):?>
+                <?= showArticle($article) ?>
+                <p><?= tronque_chaine($article->content, 70) ?></p>
+                <a href="#" class="continued">Lire la suite</a>
+                <br><br><br>
+            <?php endforeach;?>
         </div>
     </div>
 

@@ -75,19 +75,19 @@ function getComments($id)
  */
 function showArticle($article)
 {
-    echo '<div class="post">';
-    echo '  <div class="inner-post">';
-    echo "      <img src=\"". $article->path_img . "\"/>";
-    echo '      <div class="post-info">';
-    echo "          <h4><a href=\"article.php?id=" . $article->id . "\">" . tronque_chaine($article->title, 20) . "</a></h4>";
-    echo '          <div>';
-    echo "              <i class=\"fa fa-user-o\"></i> " . $article->author;
-    echo '              &nbsp;';
-    echo "              <i class=\"fa fa-calendar\"></i> " . $article->publication_time;
-    echo '          </div>';
-    echo '      </div>';
-    echo '  </div>';
-    echo '</div>';
+    print '<div class="post">';
+    print '  <div class="inner-post">';
+    print "      <img src=\"". $article->path_img . "\"/>";
+    print '      <div class="post-info">';
+    print "          <h4><a href=\"article.php?id=" . $article->id . "\">" . tronque_chaine($article->title, 22) . "</a></h4>";
+    print '          <div>';
+    print "              <i class=\"fa fa-user-o\"></i> " . $article->author;
+    print '              &nbsp;';
+    print "              <i class=\"fa fa-calendar\"></i> " . $article->publication_time;
+    print '          </div>';
+    print '      </div>';
+    print '  </div>';
+    print '</div>';
 }
 
 /**

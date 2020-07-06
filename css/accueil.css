@@ -125,6 +125,14 @@ body {
         right: 0;
     }
 
+    .post-description, .post-description .post-info {
+        font-size: 15px;
+    }
+
+    .page-wrapper {
+        display: none;
+    }
+
 }
 
 .inner-post img {
