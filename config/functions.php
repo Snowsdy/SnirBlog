@@ -19,7 +19,7 @@ function tronque_chaine($chaine, $lg_max = 60, $end = '...')
  * Table 'articles' :
  * id --> clé primaire
  * title --> titre de l'article
- * author --> auteur de l'article
+ * idUser --> auteur de l'article
  * content --> contenu de l'article
  * publication_time --> date de publication
  * publie --> booléen si article publié ou pas
@@ -55,7 +55,7 @@ function getArticlesPublies($publie)
  * id --> clé primaire
  * idArticle --> clé étrangère
  * title --> titre du commentaire
- * author --> auteur du commentaire
+ * idUser --> auteur du commentaire
  * content --> contenu du commentaire
  * publication_time --> date de publication
  */
@@ -81,7 +81,7 @@ function showArticle($article)
     print '      <div class="post-info">';
     print "          <h4><a href=\"article.php?id=" . $article->id . "\">" . tronque_chaine($article->title, 22) . "</a></h4>";
     print '          <div>';
-    print "              <i class=\"fa fa-user-o\"></i> " . $article->author;
+    print "              <i class=\"fa fa-user-o\"></i> " . $article->idUser;
     print '              &nbsp;';
     print "              <i class=\"fa fa-calendar\"></i> " . $article->publication_time;
     print '          </div>';

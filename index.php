@@ -89,11 +89,11 @@ $articles = getArticles();
                     <img src="<?= $article->path_img ?>" />
                     <div class="article-content">
                         <h4><?= $article->title ?></h4>
-                        <i class="fa fa-user-o"></i> <?= $article->author?>
+                        <i class="fa fa-user-o"></i> <?= $article->idUser?>
                         &nbsp;
                         <i class="fa fa-calendar"></i> <?= $article->publication_time?>
-                        <p><?= tronque_chaine($article->content) ?></p>
-                        <a href="#" class="continued">Lire la suite</a>
+                        <p><?= tronque_chaine($article->content)?></p>
+                        <a href="article.php?id=<?= $article->id?>" class="continued">Lire la suite</a>
                         <br><br><br>
                     </div>
                 </div>
