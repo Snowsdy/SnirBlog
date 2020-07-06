@@ -34,8 +34,12 @@ $articles = getArticles();
             <a href="#">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
+            <a href="#">Créer un compte</a>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
+            <?php if(isset($_SESSION['admin'])):?>
+                <a href="#">Tableau de bord</a>
+            <?php endif;?>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
@@ -97,6 +101,9 @@ $articles = getArticles();
         </div>
     </div>
 
+    <!-- Espace réservé pour la 'form' de Evan pour le 'Login' ou le 'Register' :) -->
+
+    <!-- FOOTER -->
     <div class="footer">
         <p>© 2020 - Designed by Snowsdy & Bailleu Evan</p>
     </div>
