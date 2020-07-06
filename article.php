@@ -35,7 +35,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
     $article = getArticle($id);
     print_r($article, true);
-    $comments = getComments($id);
+    //$comments = getComments($id);
 }
 ?>
 
