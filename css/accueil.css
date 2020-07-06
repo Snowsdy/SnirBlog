@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background: url('../upload/bck.jpg') no-repeat center fixed; 
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}
+
+.header {
+    height: 100px;
+    background: #34495e;
+    padding: 0 20px;
+    color: #111;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.header span {
+    color: royalblue;
+}
+
+
+/* NAV BAR */
+
+.logo {
+    line-height: 100px;
+    float: left;
+    text-transform: uppercase;
+}
+
+.menu {
+    float: right;
+    line-height: 100px;
+}
+
+.menu a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    transition: 0.4s;
+}
+
+.show-menu-btn, .hide-menu-btn {
+    transition: 0.4s;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.show-menu-btn {
+    float: right;
+}
+
+.show-menu-btn i {
+    line-height: 100px;
+}
+
+.menu a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover {
+    color: #3498db;
+}
+
+#chk {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1111;
+}
+
+/* // NAV BAR */
+
+.content {
+    padding: 5 60px;
+    text-align: center;
+    color: #111;
+}
+
+.title {
+    text-decoration: underline #888 3px;
+}
+
+.articles {
+    padding: 5 20px;
+}
+
+.articles h3 {
+    text-align: left;
+}
+
+@media screen and (max-width:800px) {
+    .show-menu-btn, .hide-menu-btn {
+        display: block;
+    }
+
+    .menu {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #333;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 80px 0;
+        line-height: normal;
+        transition: 0.7s;
+    }
+
+    .menu a {
+        display: block;
+        padding: 20px;
+    }
+
+    .hide-menu-btn {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    #chk:checked ~ .menu {
+        right: 0;
+    }
+
+}
+
+.inner-post img {
+    height: 240px;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* POSTS WRAPPER */
+
+.page-wrapper {
+    min-height: 100%;
+    margin-bottom: 50px;
+  }
+
+  .page-wrapper .posts-slider {
+      position: relative;
+      padding: 15px;
+  }
+
+  .posts-wrapper .posts-slider .slider-title {
+      text-align: center;
+      margin: 40px auto 40px;
+  }
+
+  .page-wrapper .posts-slider .next {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      z-index: 100;
+      font-size: 2em;
+      color: #054a4d;
+      cursor: pointer;
+  }
+
+  .page-wrapper .posts-slider .prev {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    z-index: 100;
+    font-size: 2em;
+    color: #054a4d;
+    cursor: pointer;
+}
+
+.posts-wrapper a, .ref {
+    color: rgb(3, 74, 77);
+    text-decoration: none;
+    font-weight: bold;
+}
+  
+.page-wrapper .posts-slider .posts-wrapper {
+    height: 350px;
+    color: rgb(19, 58, 59);
+    width: 84%;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.page-wrapper .posts-slider .posts-wrapper .post {
+    width: 300px;
+    height: 300px;
+    padding: 0px 10px 0px;
+    display: inline-block;
+}
+
+.page-wrapper .posts-slider .posts-wrapper .post .inner-post {
+    height: 100%;
+    border-radius: 5px;
+    background: #fff;
+    padding-bottom: 30px;
+    box-shadow: 0 1.2rem 1.2rem -1rem #0a0a0a33;
+}
+  
+.page-wrapper .posts-slider .posts-wrapper .post .inner-post .post-info {
+    height: 100px;
+    padding: 5px 10px;
+}
+
+  /* // POSTS WRAPPER */
+
+  /* POST DESCRIPTION */
+.post-description {
+    text-align: left;
+}
+
+.post-description a{
+      text-align: left;
+      text-decoration: none;
+      color: lightblue;
+}
+
+.post-description img {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.post-description .post-info {
+    padding: 10px;
+}
+
+.post-description .continued {
+    color: rgb(78, 250, 241);
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 5px;
+    border: #34495e 2px solid;
+    background-color: #34495e;
+    color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: bold;
+}
