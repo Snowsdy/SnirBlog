@@ -1,11 +1,11 @@
 * {
     margin: 0;
     padding: 0;
-    color: whitesmoke;
+    color: honeydew;
 }
 
 body {
-    background: url("../admin/upload/article_bck.jpeg") no-repeat center fixed;
+    background: url("../admin/upload/bck.jpg") no-repeat center fixed;
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
 }
@@ -32,7 +32,8 @@ body {
 
 .article .pre-info {
     text-align: center;
-    margin-top: 10px;
+    text-shadow: black 1px 1px;
+    margin-top: 15px;
     padding: 10px 0;
 }
 
@@ -51,6 +52,7 @@ body {
 }
 
 .article .content {
+    text-shadow: black 1px 1px;
     font-size: 18px;
     text-align: justify;
     margin-bottom: 10px;
