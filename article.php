@@ -84,15 +84,13 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         <?php endif;?>
 
         <div class="comments">
-            <h2>Commentaires :</h2>
-
-            <!-- Espace Commentaires 
+            <h2>Commentaires :</h2> 
 
             <?php //foreach($comments as $com):?>
                 <h3><?php //$com->author ?></h3>
                 <time><?php //$com->date ?></time>
                 <p><?php //$com->comment ?></p>
-            <?php //endforeach;?> -->
+            <?php //endforeach;?>
         </div>
 
     </div>
