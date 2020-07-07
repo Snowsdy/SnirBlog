@@ -10,70 +10,6 @@ body {
     background-size: cover; /* version standardisée */
 }
 
-.header {
-    height: 100px;
-    background: #34495e;
-    padding: 0 20px;
-    color: #111;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.header span {
-    color: royalblue;
-}
-
-
-/* NAV BAR */
-
-.logo {
-    line-height: 100px;
-    float: left;
-    text-transform: uppercase;
-}
-
-.menu {
-    float: right;
-    line-height: 100px;
-}
-
-.menu a {
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0 10px;
-    transition: 0.4s;
-}
-
-.show-menu-btn, .hide-menu-btn {
-    transition: 0.4s;
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
-}
-
-.show-menu-btn {
-    float: right;
-}
-
-.show-menu-btn i {
-    line-height: 100px;
-}
-
-.menu a:hover,
-.show-menu-btn:hover,
-.hide-menu-btn:hover {
-    color: #3498db;
-}
-
-#chk {
-    position: absolute;
-    visibility: hidden;
-    z-index: -1111;
-}
-
-/* // NAV BAR */
-
 .content {
     padding: 5 60px;
     text-align: center;
@@ -93,37 +29,6 @@ body {
 }
 
 @media screen and (max-width:800px) {
-    .show-menu-btn, .hide-menu-btn {
-        display: block;
-    }
-
-    .menu {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #333;
-        right: -100%;
-        top: 0;
-        text-align: center;
-        padding: 80px 0;
-        line-height: normal;
-        transition: 0.7s;
-    }
-
-    .menu a {
-        display: block;
-        padding: 20px;
-    }
-
-    .hide-menu-btn {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-    }
-
-    #chk:checked ~ .menu {
-        right: 0;
-    }
 
     .post-description, .post-description .post-info {
         font-size: 15px;
@@ -249,16 +154,4 @@ body {
 
 .article-content {
     margin-top: 2px;
-}
-/* FOOTER */
-
-.footer {
-    text-align: center;
-    padding: 5px;
-    border: #34495e 2px solid;
-    background-color: #34495e;
-    color: black;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font-weight: bold;
 }

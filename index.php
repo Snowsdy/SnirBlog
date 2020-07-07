@@ -4,47 +4,7 @@ require_once 'config/functions.php';
 $articles = getArticles();
 ?>
 
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnirBlog</title>
-    <link rel="stylesheet" href="/css/accueil.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io//favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
-</head>
-
-<body>
-
-    <div class="header">
-        <h2 class="logo"><span>Snir</span>Blog</h2>
-        <input type="checkbox" id="chk">
-        <label for="chk" class="show-menu-btn">
-            <i class="fas fa-ellipsis-h"></i>
-        </label>
-
-        <ul class="menu">
-            <a href="#">Accueil</a>
-            <a href="#">
-                <i class="fa fa-sign-in"></i> Se connecter
-            </a>
-            <a href="#">Créer un compte</a>
-            <a href="#">A propos</a>
-            <a href="#">Nous contacter</a>
-            <?php if(isset($_SESSION['admin'])):?>
-                <a href="#">Tableau de bord</a>
-            <?php endif;?>
-            <label for="chk" class="hide-menu-btn">
-                <i class="fas fa-times"></i>
-            </label>
-        </ul>
-    </div>
+<?php include 'admin/includes/header.php'?>
 
     <div class="content">
         <h1 class="title">Projet Blog</h1>
@@ -103,10 +63,7 @@ $articles = getArticles();
 
     <!-- Espace réservé pour la 'form' de Evan pour le 'Login' ou le 'Register' :) -->
 
-    <!-- FOOTER -->
-    <div class="footer">
-        <p>© 2020 - Designed by Snowsdy & Bailleu Evan</p>
-    </div>
+    <?php include 'admin/includes/footer.php'?>
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
