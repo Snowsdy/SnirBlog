@@ -4,7 +4,47 @@ require_once 'config/functions.php';
 $articles = getArticles();
 ?>
 
-<?php include 'admin/includes/header.php'?>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnirBlog</title>
+    <link rel="stylesheet" href="admin/css/header.css">
+    <link rel="stylesheet" href="../../css/accueil.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io//favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+</head>
+
+<body>
+    <div class="header">
+        <h2 class="logo"><span>Snir</span>Blog</h2>
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+        </label>
+
+        <ul class="menu">
+            <a href="index.php">Accueil</a>
+            <a href="#" class="button" id="button">
+                <i class="fa fa-sign-in"></i> Se connecter
+            </a>
+            <a href="#">Créer un compte</a>
+            <a href="#">A propos</a>
+            <a href="#">Nous contacter</a>
+            <?php if(isset($_SESSION['admin'])):?>
+            <a href="#">Tableau de bord</a>
+            <?php endif;?>
+            <label for="chk" class="hide-menu-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </ul>
+    </div>
 
     <div class="content">
         <h1 class="title">Projet Blog</h1>
@@ -30,7 +70,7 @@ $articles = getArticles();
 
                     <div class="posts-wrapper">
                         <?php foreach($articles as $article):?>
-                            <?= showArticle($article) ?>
+                        <?= showArticle($article) ?>
                         <?php endforeach;?>
                     </div>
                 </div>
@@ -45,18 +85,18 @@ $articles = getArticles();
         <div class="post-description">
             <h3>Nos Articles :</h3><br>
             <?php foreach($articles as $article):?>
-                <div class="article">
-                    <img src="<?= $article->path_img ?>" />
-                    <div class="article-content">
-                        <h4><?= $article->title ?></h4>
-                        <i class="fa fa-user-o"></i> <?= $article->author?>
-                        &nbsp;
-                        <i class="fa fa-calendar"></i> <?= $article->publication_time?>
-                        <p><?= tronque_chaine($article->content)?></p>
-                        <a href="article.php?id=<?= $article->id?>" class="continued">Lire la suite</a>
-                        <br><br><br>
-                    </div>
+            <div class="article">
+                <img src="<?= $article->path_img ?>" />
+                <div class="article-content">
+                    <h4><?= $article->title ?></h4>
+                    <i class="fa fa-user-o"></i> <?= $article->author?>
+                    &nbsp;
+                    <i class="fa fa-calendar"></i> <?= $article->publication_time?>
+                    <p><?= tronque_chaine($article->content)?></p>
+                    <a href="article.php?id=<?= $article->id?>" class="continued">Lire la suite</a>
+                    <br><br><br>
                 </div>
+            </div>
             <?php endforeach;?>
         </div>
     </div>
@@ -75,7 +115,11 @@ $articles = getArticles();
         </div>
     </div>
 
-    <?php include 'admin/includes/footer.php'?>
+    <!-- FOOTER -->
+    <div class="footer">
+        <link rel="stylesheet" href="admin/css/footer.css">
+        <p>© 2020 - Designed by Snowsdy & Bailleu Evan</p>
+    </div>
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
