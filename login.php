@@ -1,5 +1,3 @@
 <?php 
-/**
- * Récupération des données et comparation ds Bdd :
- */
+echo '<pre>' . print_r($_POST, true) . '</pre>';
 ?>

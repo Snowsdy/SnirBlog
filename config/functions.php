@@ -119,3 +119,21 @@ function getUsers()
     return $data;
     $req->closeCursor();
 }
+
+/**
+ * Fonction qui permet de recupérer un utilisateur selon le paramètre passé.
+ */
+function getUser($param, $valParam)
+{
+    require 'connect.php';
+    $req = $bdd->prepare("SELECT * FROM users WHERE $param = ?");
+    $req->execute(array($valParam));
+    if ($req->rowCount() == 1) {
+        $data = $req->fetch(PDO::FETCH_OBJ);
+        return $data;
+    } else {
+        header('Location: index.php');
+    }
+    $req->closeCursor();
+
+}

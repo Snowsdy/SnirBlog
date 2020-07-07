@@ -1,3 +1,8 @@
-<?php if($_SESSION['admin']):?>
-    <!-- Code HTML de l'accueil pour Admins -->
+<?php 
+    require '../config/functions.php';
+    $user = getUser('id', 1);
+    
+?>
+<?php if($user->admin):?>
+    <?= "TU ES UN ADMIN" ?>
 <?php endif;?>

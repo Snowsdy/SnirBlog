@@ -78,10 +78,7 @@ $articles = getArticles();
         </div>
 
         <!-- Contenu de la page -->
-        <!-- Le but ici est de remplacer 'showArticles'
-        directement par le tableau 'articles' et ensuite on
-        appel le paramètre voulu. Ex : Pour l'image : $articles[0]->path_img
-        pour obtenir le chemin où se situe l'image de l'article -->
+
         <div class="post-description">
             <h3>Nos Articles :</h3><br>
             <?php foreach($articles as $article):?>
@@ -101,17 +98,15 @@ $articles = getArticles();
         </div>
     </div>
 
-    <!-- Espace réservé pour la 'form' de Evan pour le 'Login' et/ou le 'Register' :) -->
-
     <!-- Login -->
 
     <div id="login" class="login">
         <div class="login-content">
             <form class="box" action="login.php" method="post">
                 <h1>Login</h1>
-                <input type="text" name="" placeholder="Username">
-                <input type="password" name="" placeholder="Password">
-                <input type="submit" name="" value="Login">
+                <input type="text" name="pseudo" placeholder="Pseudo">
+                <input type="password" name="mdp" placeholder="Mot de passe">
+                <input type="submit" value="Login">
             </form>
         </div>
     </div>
