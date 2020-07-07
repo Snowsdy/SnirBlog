@@ -22,7 +22,7 @@
         </label>
 
         <ul class="menu">
-            <a href="index.php/">Accueil</a>
+            <a href="index.php">Accueil</a>
             <a href="#" class="button" id="button">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
