@@ -107,11 +107,12 @@ $articles = getArticles();
 
     <div id="login" class="login">
         <div class="login-content">
-            <img src="admin/upload/close.png" alt="Close" class="close">
-            <img src="admin/upload/user.png" alt="User">
-            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" />
-            <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" />
-            <a href="#" class="button">Log In</a>
+            <form class="box" action="index.html" method="post">
+                <h1>Login</h1>
+                <input type="text" name="" placeholder="Username">
+                <input type="password" name="" placeholder="Password">
+                <input type="submit" name="" value="Login">
+            </form>
         </div>
     </div>
 
