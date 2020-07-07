@@ -81,7 +81,7 @@ function showArticle($article)
     print '      <div class="post-info">';
     print "          <h4><a href=\"article.php?id=" . $article->id . "\">" . tronque_chaine($article->title, 22) . "</a></h4>";
     print '          <div>';
-    print "              <i class=\"fa fa-user-o\"></i> " . $article->idUser;
+    print "              <i class=\"fa fa-user-o\"></i> " . $article->author;
     print '              &nbsp;';
     print "              <i class=\"fa fa-calendar\"></i> " . $article->publication_time;
     print '          </div>';

@@ -49,7 +49,7 @@ $articles = getArticles();
                     <img src="<?= $article->path_img ?>" />
                     <div class="article-content">
                         <h4><?= $article->title ?></h4>
-                        <i class="fa fa-user-o"></i> <?= $article->idUser?>
+                        <i class="fa fa-user-o"></i> <?= $article->author?>
                         &nbsp;
                         <i class="fa fa-calendar"></i> <?= $article->publication_time?>
                         <p><?= tronque_chaine($article->content)?></p>
@@ -61,7 +61,19 @@ $articles = getArticles();
         </div>
     </div>
 
-    <!-- Espace réservé pour la 'form' de Evan pour le 'Login' ou le 'Register' :) -->
+    <!-- Espace réservé pour la 'form' de Evan pour le 'Login' et/ou le 'Register' :) -->
+
+    <!-- Login -->
+
+    <div id="login" class="login">
+        <div class="login-content">
+            <img src="admin/upload/close.png" alt="Close" class="close">
+            <img src="admin/upload/user.png" alt="User">
+            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" />
+            <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" />
+            <a href="#" class="button">Log In</a>
+        </div>
+    </div>
 
     <?php include 'admin/includes/footer.php'?>
 
