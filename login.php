@@ -1,5 +1,5 @@
 <?php 
 /**
- * Evan doit faire son 'Login' Modal :)
+ * Récupération des données et comparation ds Bdd :
  */
 ?>
