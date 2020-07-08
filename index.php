@@ -115,7 +115,9 @@ $articles = getArticles();
                 <p>
                     <?php 
                         if (!empty($_SESSION['erreurs'])) {
-                            echo $_SESSION['erreurs'];
+                            foreach ($_SESSION['erreurs'] as $error) {
+                                echo $error;
+                            }
                         }
                     ?>
                 </p>
@@ -133,6 +135,15 @@ $articles = getArticles();
             <form class="box" action="register.php" method="post">
                 <span class="close" id="close">&times;</span>
                 <h1>inscription</h1>
+                <p>
+                    <?php 
+                        if (!empty($_SESSION['erreurs'])) {
+                            foreach ($_SESSION['erreurs'] as $error) {
+                                echo $error;
+                            }
+                        }
+                    ?>
+                </p>
                 <div class="nom_prenom">
                     <input type="text" name="prenom" placeholder="Prénom">
                     <input type="text" name="nom" placeholder="Nom">
