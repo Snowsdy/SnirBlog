@@ -57,5 +57,5 @@ if ($_POST) {
         $_SESSION['pseudo'] = $newUser->pseudo;
     }
 
-    header('Location: index.php');
+    header('Location:'. BASE_URL .'index.php');
 }
