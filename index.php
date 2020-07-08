@@ -33,7 +33,7 @@ $articles = getArticles();
 
         <ul class="menu">
             <a href="index.php">Accueil</a>
-            <?php if(isset($_SESSION['admin'])):?>
+            <?php if($_SESSION['admin']):?>
             <a href="/admin/index.php">Tableau de bord</a>
             <?php endif;?>
             <a href="#login" id="login_btn">

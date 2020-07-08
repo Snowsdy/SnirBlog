@@ -1,8 +1,12 @@
 <?php 
-require 'config/functions.php';
+/*require 'config/functions.php';
 
 if($_POST){
-    echo '<pre>' . print_r($_POST, true) . '</pre>';
-    header('Location: index.php');
-}
+    
+    addUserPublic($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['mdp']);
+    $users = getUsers();
+    foreach($users as $user){
+        echo '<pre>' . print_r($user, true) . '</pre>';
+    }
+}*/
 ?>

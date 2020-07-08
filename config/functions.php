@@ -127,7 +127,7 @@ function getUser($param, $valParam)
 function addUserPublic($nom, $prenom, $email, $pseudo, $mdp)
 {
     require 'config/connect.php';
-    $req = $bdd->prepare('INSERT INTO users (nom, pseudo, prenom, email, mdp, admin, creation_time) VALUES (nom = ?, pseudo = ?, prenom = ?, email = ?, mdp = ?, admin = 0, creation_time = NOW())');
+    $req = $bdd->prepare("INSERT INTO users (nom, pseudo, prenom, email, mdp, creation_time, admin) VALUES (?, ?, ?, ?, ?, NOW(), 0)");
     $req->execute(array($nom, $pseudo, $prenom, $email, $mdp));
     $req->closeCursor();
 }
