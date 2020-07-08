@@ -4,7 +4,12 @@ require_once 'config/functions.php';
 
 $users = getUsers();
 
-if ($_POST) {
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: index.php');
+}
+
+if (isset($_POST['login_button'])) {
     if(isset($_POST['pseudo']) && isset($_POST['mdp'])){
         $pseudo = $_POST['pseudo'];
         $mdp = $_POST['mdp'];

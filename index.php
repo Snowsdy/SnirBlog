@@ -32,14 +32,18 @@ $articles = getArticles();
         </label>
 
         <ul class="menu">
-            <a href="index.php">Accueil</a>
-            <?php if($_SESSION['admin']):?>
-            <a href="/admin/index.php">Tableau de bord</a>
-            <?php endif;?>
+            <?php if(isset($_SESSION['pseudo'])):?>
+            Bienvenue <b><?= strtoupper($_SESSION['pseudo']) ?></b>
+            <a href="login.php?logout">Se déconnecter</a>
+            <?php else:?>
             <a href="#login" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
             <a href="#inscription" id="signUp_btn">Créer un compte</a>
+            <?php endif;?>
+            <?php if($_SESSION['admin']):?>
+            <a href="/admin/index.php">Tableau de bord</a>
+            <?php endif;?>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
             <label for="chk" class="hide-menu-btn">
@@ -109,7 +113,7 @@ $articles = getArticles();
                 <h1>Login</h1>
                 <input type="text" name="pseudo" placeholder="Pseudo">
                 <input type="password" name="mdp" placeholder="Mot de passe">
-                <input type="submit" value="Login">
+                <input type="submit" name="login_button" value="Login">
             </form>
         </div>
     </div>
