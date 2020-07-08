@@ -18,6 +18,6 @@ let span = document.getElementById('close');
 connexion_btn.onclick = function(){
     connexion.style.display = "flex";
 }
-inscription_btn.addEventListener("click", function () {
+inscription_btn.addEventListener("click", function(){
     inscription.style.display = "flex";
 })
