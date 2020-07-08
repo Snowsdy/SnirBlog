@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 06 juil. 2020 à 18:37
+-- Généré le : mer. 08 juil. 2020 à 16:06
 -- Version du serveur :  8.0.20-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -86,7 +86,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `email`, `pseudo`, `mdp`, `admin`, `creation_time`) VALUES
-(1, 'Cusma', 'Vincenzo', 'shadowss.yt@gmail.com', 'Snowsdy', 'MoRello2598@#-=+', 1, '2020-07-06 11:30:29');
+(1, 'Cusma', 'Vincenzo', 'shadowss.yt@gmail.com', 'Snowsdy', '$2y$10$M8UTMhc6dx.3x9ewLFGEOOLAtp7Mng0tF5X2uFuNwT/q4r0C2.sD2', 1, '2020-07-08 15:57:22'),
+(2, 'Bailleu', 'Evan', 'bailleu.evan@gmail.com', 'darkdevs', '$2y$10$0HRYmTjjZ2Rz6onc7QBtJeQ23ciCXwomDQ8V/y/LiUamTsUVPJt..', 1, '2020-07-08 15:58:00'),
+(3, 'Solmon', 'Hugo', 'coba.kalilinux.ru', 'Coba', '$2y$10$ESm/6qwjTteFTD.qEMGxBuXUJR3NHG/ZLTFJby9NFmX7qFeVcPb1.', 0, '2020-07-08 14:34:36'),
+(4, 'Alonso', 'Stéphane', 'stef.alonso@gmail.com', 'fanou', '$2y$10$zas.J/vIm7QL380ct14cduRww7gzNmmPvtMk4oWvgJUCgA4NAiwra', 0, '2020-07-08 16:03:21');
 
 --
 -- Index pour les tables déchargées
@@ -132,7 +135,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées

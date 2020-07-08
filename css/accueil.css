@@ -10,11 +10,15 @@ body {
     background-size: cover; /* version standardisée */
 }
 
+.content .post-articles, .content .post-description {
+    text-shadow: black 1px 1px;
+}
+
 .content {
+    background-color: rgba(10, 51, 53, 0.7);
     padding: 5 60px;
     text-align: center;
-    color: honeydew;
-    text-shadow: black 1px 1px;
+    color: rgb(235, 230, 230);
 }
 
 .title {
@@ -160,7 +164,7 @@ body {
 /* Inscription */
 
 .box{
-    border-radius: 5%;
+    border-radius: 8px;
     width: 300px;
     padding: 5px;
     position: absolute;
