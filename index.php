@@ -36,10 +36,10 @@ $articles = getArticles();
             <?php if(isset($_SESSION['admin'])):?>
             <a href="/admin/index.php">Tableau de bord</a>
             <?php endif;?>
-            <a href="#" id="login_btn">
+            <a href="#login" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
-            <a href="#" id="signUp_btn">Créer un compte</a>
+            <a href="#inscription" id="signUp_btn">Créer un compte</a>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
             <label for="chk" class="hide-menu-btn">
