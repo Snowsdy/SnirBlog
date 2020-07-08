@@ -17,20 +17,6 @@ body {
     background-color: rgba(10, 51, 53, 0.8);
 }
 
-.article a{
-    text-decoration: none;
-    font-weight: 500;
-    padding: 10px 40px;
-    border-radius: 25px;
-    border: 2px solid black;
-    transition: .3s linear;
-}
-
-.article a:hover {
-    color: black;
-    background-color: rgb(19, 98, 172);
-}
-
 .article .pre-info {
     border-radius: 5px;
     text-align: center;

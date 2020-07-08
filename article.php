@@ -45,7 +45,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $article->title?></title>
     <link rel="stylesheet" href="css/article.css">
-    <link rel="stylesheet" href="<?= ROOT_PATH . 'admin/css/header.css' ?>">
+    <link rel="stylesheet" href="admin/css/header.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
@@ -53,9 +53,8 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 </head>
 
 <body>
-    <?php include ROOT_PATH . 'admin/includes/header.php'?>
+    <?php include ROOT_PATH . '/admin/includes/header.php'?>
     <div class="article">
-        <a href="index.php" class="btn btn-submit" id="admin">Accueil</a>
 
         <div class="pre-info">
             <h1><?=$article->title?></h1>
