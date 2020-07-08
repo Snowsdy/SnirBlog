@@ -63,6 +63,10 @@ $articles = getArticles();
             (dispo sur le web).
         </p>
         <br>
+        <p>
+            <?= $errors ?>
+        </p>
+        <br>
         <!-- Affichage des articles -->
         <br>
         <div class="articles">

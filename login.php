@@ -12,9 +12,9 @@ if (isset($_GET['logout'])) {
 if (isset($_POST['login_button'])) {
     if(isset($_POST['pseudo']) && isset($_POST['mdp'])){
         $pseudo = $_POST['pseudo'];
-        $mdp = $_POST['mdp'];
         foreach ($users as $user) {
-            if ($pseudo == $user->pseudo && $mdp == $user->mdp) {
+            $confMdp = password_verify($_POST['mdp'], $user->mdp);
+            if ($pseudo == $user->pseudo && $confMdp) {
             
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nom'] = $user->nom;
@@ -24,6 +24,8 @@ if (isset($_POST['login_button'])) {
                 $_SESSION['admin'] = $user->admin;
                 $_SESSION['pseudo'] = $user->pseudo;
 
+                header('Location: index.php');
+            }else {
                 header('Location: index.php');
             }
         }
