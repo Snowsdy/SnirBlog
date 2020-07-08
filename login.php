@@ -3,6 +3,7 @@ session_start();
 require_once 'config/functions.php';
 
 $users = getUsers();
+$_SESSION['erreurs'] = array();
 
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -26,6 +27,7 @@ if (isset($_POST['login_button'])) {
 
                 header('Location: index.php');
             }else {
+                array_push($_SESSION['erreurs'], 'Pseudo et/ou Mot de passe incorect');
                 header('Location: index.php');
             }
         }

@@ -112,6 +112,13 @@ $articles = getArticles();
             <form class="box" action="login.php" method="post">
                 <span class="close" id="close">&times;</span>
                 <h1>Login</h1>
+                <p>
+                    <?php 
+                        if (!empty($_SESSION['erreurs'])) {
+                            echo $_SESSION['erreurs'];
+                        }
+                    ?>
+                </p>
                 <input type="text" name="pseudo" placeholder="Pseudo">
                 <input type="password" name="mdp" placeholder="Mot de passe">
                 <input type="submit" name="login_button" value="Login">
