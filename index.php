@@ -36,10 +36,10 @@ $articles = getArticles();
             Bienvenue <b><?= strtoupper($_SESSION['pseudo']) ?></b>
             <a href="login.php?logout">Se déconnecter</a>
             <?php else:?>
-            <a href="#login" id="login_btn">
+            <a href="#" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
-            <a href="#inscription" id="signUp_btn">Créer un compte</a>
+            <a href="#" id="signUp_btn">Créer un compte</a>
             <?php endif;?>
             <?php if($_SESSION['admin']):?>
             <a href="/admin/index.php">Tableau de bord</a>
