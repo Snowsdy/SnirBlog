@@ -36,10 +36,14 @@ $articles = getArticles();
             <?php if($_SESSION['admin']):?>
             <a href="/admin/index.php">Tableau de bord</a>
             <?php endif;?>
+            <?php if(isset($_SESSION['pseudo'])):?>
+            <a href="login.php?logout">Se déconnecter</a>
+            <?php else:?>
             <a href="#login" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
             <a href="#inscription" id="signUp_btn">Créer un compte</a>
+            <?php endif;?>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
             <label for="chk" class="hide-menu-btn">
@@ -108,7 +112,7 @@ $articles = getArticles();
                 <h1>Login</h1>
                 <input type="text" name="pseudo" placeholder="Pseudo">
                 <input type="password" name="mdp" placeholder="Mot de passe">
-                <input type="submit" value="Login">
+                <input type="submit" name="login_button" value="Login">
             </form>
         </div>
     </div>
@@ -117,20 +121,20 @@ $articles = getArticles();
 
     <div id="inscription" class="inscription">
         <div class="login-content">
-                <form class="box" action="register.php" method="post">
-                    <h1>Login</h1>
-                    <div class="nom_prenom">
-                        <input type="text" name="prenom" placeholder="Prénom">
-                        <input type="text" name="nom" placeholder="Nom">
-                    </div>
-                    <input type="text" name="pseudo" class="marg" placeholder="Pseudo">
-                    <input type="text" name="email" class="marg" placeholder="Email">
-                    <div class="nom_prenom">
-                        <input type="password" name="mdp" placeholder="Mot de passe">
-                        <input type="password" name="confMdp" placeholder="Confirmation Mdp">
-                    </div>
-                    <input type="submit" value="inscription">
-                </form>
+            <form class="box" action="register.php" method="post">
+                <h1>Login</h1>
+                <div class="nom_prenom">
+                    <input type="text" name="prenom" placeholder="Prénom">
+                    <input type="text" name="nom" placeholder="Nom">
+                </div>
+                <input type="text" name="pseudo" class="marg" placeholder="Pseudo">
+                <input type="text" name="email" class="marg" placeholder="Email">
+                <div class="nom_prenom">
+                    <input type="password" name="mdp" placeholder="Mot de passe">
+                    <input type="password" name="confMdp" placeholder="Confirmation Mdp">
+                </div>
+                <input type="submit" name="register_button" value="inscription">
+            </form>
         </div>
     </div>
 
