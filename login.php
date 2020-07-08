@@ -8,7 +8,7 @@ $erreur = 0;
 
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('Location: index.php');
+    header('Location:'. BASE_URL .'index.php');
 }
 
 if (isset($_POST['login_button'])) {
@@ -27,12 +27,12 @@ if (isset($_POST['login_button'])) {
                 $_SESSION['admin'] = $user->admin;
                 $_SESSION['pseudo'] = $user->pseudo;
 
-                header('Location: index.php');
+                header('Location:'. BASE_URL .'index.php');
             }
         }
         if ($erreur == 0) {
             array_push($_SESSION['erreurLogin'], 'Pseudo et/ou Mot de passe incorect');
-            header('Location: index.php');
+            header('Location:'. BASE_URL .'index.php');
         }
     }
 }

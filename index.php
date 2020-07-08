@@ -25,7 +25,7 @@ $articles = getArticles();
 
 <body>
     <?php
-        include "php/header.php";
+        include "admin/includes/header.php";
     ?>
 
     <div class="content">
@@ -84,7 +84,7 @@ $articles = getArticles();
     <!-- Login -->
 
     <?php 
-        include 'php/login.php';
+        include 'admin/includes/login.php';
     ?>
 
     <!-- inscription -->
@@ -121,7 +121,7 @@ $articles = getArticles();
 
     <!-- FOOTER -->
     <?php
-        include 'php/footer.php'
+        include 'admin/includes/footer.php'
     ?>
 
     <!-- JQuery -->
