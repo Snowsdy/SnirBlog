@@ -33,6 +33,7 @@
 
 .menu a {
     color: #fff;
+    cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0 10px;
