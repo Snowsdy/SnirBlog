@@ -1,4 +1,5 @@
 document.getElementById('inscription').style.display = "none";
+document.getElementById('login').style.display = "none";
 
 // Variable connexion : correspond à la div du Login.
 let connexion = document.getElementById('login');
