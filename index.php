@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'config/functions.php';
 
 $articles = getArticles();
@@ -32,15 +33,15 @@ $articles = getArticles();
 
         <ul class="menu">
             <a href="index.php">Accueil</a>
+            <?php if(isset($_SESSION['admin'])):?>
+            <a href="/admin/index.php">Tableau de bord</a>
+            <?php endif;?>
             <a href="#" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
             <a href="#" id="signUp_btn">Créer un compte</a>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
-            <?php if(isset($_SESSION['admin'])):?>
-            <a href="#">Tableau de bord</a>
-            <?php endif;?>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
