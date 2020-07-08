@@ -11,10 +11,11 @@ $articles = getArticles();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnirBlog</title>
     <link rel="stylesheet" href="admin/css/header.css">
-    <link rel="stylesheet" href="../../css/accueil.css">
+    <link rel="stylesheet" href="css/accueil.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io//favicon-16x16.png">
@@ -43,7 +44,7 @@ $articles = getArticles();
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
-        </ul>
+        </ul> 
     </div>
 
     <div class="content">
@@ -111,9 +112,29 @@ $articles = getArticles();
         </div>
     </div>
 
+    <!-- inscription -->
+
+    <div id="inscription" class="inscription">
+        <div class="login-content">
+                <form class="box" action="register.php" method="post">
+                    <h1>Login</h1>
+                    <div class="nom_prenom">
+                        <input type="text" name="" placeholder="prenom">
+                        <input type="text" name="" placeholder="nom">
+                    </div>
+                    <input type="text" name="" class="marg" cplaceholder="pseudo">
+                    <input type="text" name="" class="marg" placeholder="email">
+                    <div class="nom_prenom">
+                        <input type="password" name="" placeholder="Password">
+                        <input type="password" name="" placeholder="rePassword">
+                    </div>
+                    <input type="submit" name="" value="inscription">
+                </form>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <div class="footer">
-        <link rel="stylesheet" href="admin/css/footer.css">
         <p>© 2020 - Designed by Snowsdy & Bailleu Evan</p>
     </div>
 
@@ -122,6 +143,8 @@ $articles = getArticles();
 
     <!-- Slick JS -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="js/main.js"></script>
 
     <script src="js/scripts.js"></script>
 </body>
