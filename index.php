@@ -139,7 +139,7 @@ $articles = getArticles();
                         <input type="password" name="mdp" placeholder="Mot de passe">
                         <input type="password" name="confMdp" placeholder="Confirmation Mdp">
                     </div>
-                    <input type="submit" value="inscription">
+                    <input type="submit" value="Inscription">
                 </form>
         </div>
     </div>

@@ -160,8 +160,9 @@ body {
 /* Inscription */
 
 .box{
+    border-radius: 5%;
     width: 300px;
-    padding: 40px;
+    padding: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -169,11 +170,27 @@ body {
     background: #191919;
     text-align: center;
   }
+
+  .close {
+    float: right;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   .box h1{
     color: white;
     text-transform: uppercase;
     font-weight: 500;
   }
+
   .box input[type = "text"],.box input[type = "password"]{
     border:0;
     background: none;
@@ -188,10 +205,12 @@ body {
     border-radius: 24px;
     transition: 0.25s;
   }
+
   .box input[type = "text"]:focus,.box input[type = "password"]:focus{
     width: 280px;
     border-color: #2ecc71;
   }
+
   .box input[type = "submit"]{
     border:0;
     background: none;
@@ -206,19 +225,7 @@ body {
     transition: 0.25s;
     cursor: pointer;
   }
+
   .box input[type = "submit"]:hover{
     background: #2ecc71;
-  }
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
   }
