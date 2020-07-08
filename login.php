@@ -3,7 +3,8 @@ session_start();
 require_once 'config/functions.php';
 
 $users = getUsers();
-$_SESSION['erreurs'] = array();
+$_SESSION['erreurLogin'] = array();
+$erreur = 0;
 
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -16,6 +17,7 @@ if (isset($_POST['login_button'])) {
         foreach ($users as $user) {
             $confMdp = password_verify($_POST['mdp'], $user->mdp);
             if ($pseudo == $user->pseudo && $confMdp) {
+                $erreur++;
             
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nom'] = $user->nom;
@@ -26,10 +28,11 @@ if (isset($_POST['login_button'])) {
                 $_SESSION['pseudo'] = $user->pseudo;
 
                 header('Location: index.php');
-            }else {
-                array_push($_SESSION['erreurs'], 'Pseudo et/ou Mot de passe incorect');
-                header('Location: index.php');
             }
+        }
+        if ($erreur == 0) {
+            array_push($_SESSION['erreurLogin'], 'Pseudo et/ou Mot de passe incorect');
+            header('Location: index.php');
         }
     }
 }

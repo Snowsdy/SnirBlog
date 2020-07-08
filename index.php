@@ -114,10 +114,11 @@ $articles = getArticles();
                 <h1>Login</h1>
                 <p>
                     <?php 
-                        if (!empty($_SESSION['erreurs'])) {
-                            foreach ($_SESSION['erreurs'] as $error) {
+                        if (!empty($_SESSION['erreurLogin'])) {
+                            foreach ($_SESSION['erreurLogin'] as $error) {
                                 echo $error;
                             }
+                            unset($_SESSION['erreurLogin']);
                         }
                     ?>
                 </p>
@@ -137,10 +138,11 @@ $articles = getArticles();
                 <h1>inscription</h1>
                 <p>
                     <?php 
-                        if (!empty($_SESSION['erreurs'])) {
-                            foreach ($_SESSION['erreurs'] as $error) {
-                                echo $error;
+                        if (!empty($_SESSION['erreurRegister'])) {
+                            foreach ($_SESSION['erreurRegister'] as $error) {
+                                echo $error . '<br>';
                             }
+                            unset($_SESSION['erreurRegister']);
                         }
                     ?>
                 </p>
