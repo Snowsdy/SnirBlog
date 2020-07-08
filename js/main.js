@@ -13,7 +13,7 @@ let connexion_btn = document.getElementById('login_btn');
 let inscription_btn = document.getElementById('signUp_btn');
 
 let btn = document.getElementById('button');
-let span = document.getElementById('close');
+var span = document.getElementsByClassName("close")[0];
 
 connexion_btn.onclick = function(){
     connexion.style.display = "flex";
@@ -21,3 +21,7 @@ connexion_btn.onclick = function(){
 inscription_btn.addEventListener("click", function(){
     inscription.style.display = "flex";
 })
+
+span.onclick = function() {
+    connexion.style.display = "none";
+}
