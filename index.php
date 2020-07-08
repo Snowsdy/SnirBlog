@@ -112,7 +112,7 @@ $articles = getArticles();
             <form class="box" action="login.php" method="post">
                 <span class="close" id="close">&times;</span>
                 <h1>Login</h1>
-                <p>
+                <b style="color: red;">
                     <?php 
                         if (!empty($_SESSION['erreurLogin'])) {
                             foreach ($_SESSION['erreurLogin'] as $error) {
@@ -121,7 +121,7 @@ $articles = getArticles();
                             unset($_SESSION['erreurLogin']);
                         }
                     ?>
-                </p>
+                </b style="color: red;">
                 <input type="text" name="pseudo" placeholder="Pseudo">
                 <input type="password" name="mdp" placeholder="Mot de passe">
                 <input type="submit" name="login_button" value="Login">
@@ -136,16 +136,16 @@ $articles = getArticles();
             <form class="box" action="register.php" method="post">
                 <span class="close" id="close">&times;</span>
                 <h1>inscription</h1>
-                <p>
+                <b style="color: red;">
                     <?php 
                         if (!empty($_SESSION['erreurRegister'])) {
                             foreach ($_SESSION['erreurRegister'] as $error) {
-                                echo $error . '<br>';
+                                echo '<b style="color: red;>' . $error . '<br></b>';
                             }
                             unset($_SESSION['erreurRegister']);
                         }
                     ?>
-                </p>
+                </b style="color: red;">
                 <div class="nom_prenom">
                     <input type="text" name="prenom" placeholder="Prénom">
                     <input type="text" name="nom" placeholder="Nom">
