@@ -14,6 +14,8 @@ function tronque_chaine($chaine, $lg_max = 60, $end = '...')
     }
 }
 
+// ARTICLES
+
 /**
  * Fonction qui récupère tous les articles (publié ou non).
  * Table 'articles' :
@@ -48,27 +50,6 @@ function getArticlesPublies($publie)
     return $data;
     $req->closeCursor();
 }
-
-/**
- * Fonction qui récupère les commentaires d'un article selon son id.
- * Table 'comments' :
- * id --> clé primaire
- * idArticle --> clé étrangère
- * title --> titre du commentaire
- * idUser --> auteur du commentaire
- * content --> contenu du commentaire
- * publication_time --> date de publication
- */
-function getComments($id)
-{
-    require 'config/connect.php';
-    $req = $bdd->prepare('SELECT * FROM comments WHERE articleID = ?');
-    $req->execute(array($id));
-    $data = $req->fetchAll(PDO::FETCH_OBJ);
-    return $data;
-    $req->closeCursor();
-}
-
 
 /**
  * Fonction qui permet d'afficher à la suite les articles.
@@ -107,6 +88,8 @@ function getArticle($id)
     $req->closeCursor();
 }
 
+// USERS
+
 /**
  * Fonction qui permet de récupérer les utilisateurs.
  */
@@ -136,4 +119,37 @@ function getUser($param, $valParam)
     }
     $req->closeCursor();
 
+}
+
+/**
+ * Fonction qui ajoute un nouvel utilisateur.
+ */
+function addUserPublic($nom, $prenom, $email, $pseudo, $mdp)
+{
+    require 'config/connect.php';
+    $req = $bdd->prepare("INSERT INTO users (nom, pseudo, prenom, email, mdp, creation_time, admin) VALUES (?, ?, ?, ?, ?, NOW(), 0)");
+    $req->execute(array($nom, $pseudo, $prenom, $email, $mdp));
+    $req->closeCursor();
+}
+
+// COMMENTS
+
+/**
+ * Fonction qui récupère les commentaires d'un article selon son id.
+ * Table 'comments' :
+ * id --> clé primaire
+ * idArticle --> clé étrangère
+ * title --> titre du commentaire
+ * idUser --> auteur du commentaire
+ * content --> contenu du commentaire
+ * publication_time --> date de publication
+ */
+function getComments($id)
+{
+    require 'config/connect.php';
+    $req = $bdd->prepare('SELECT * FROM comments WHERE articleID = ?');
+    $req->execute(array($id));
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->closeCursor();
 }
