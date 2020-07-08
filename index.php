@@ -107,7 +107,7 @@ $articles = getArticles();
     <!-- Login -->
 
     <div id="login" class="login">
-        <span class="close">&timers;</span>
+        <span class="close">&times;</span>
         <div class="login-content">
             <form class="box" action="login.php" method="post">
                 <h1>Login</h1>
