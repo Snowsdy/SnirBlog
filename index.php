@@ -32,17 +32,17 @@ $articles = getArticles();
         </label>
 
         <ul class="menu">
-            <a href="index.php">Accueil</a>
-            <?php if($_SESSION['admin']):?>
-            <a href="/admin/index.php">Tableau de bord</a>
-            <?php endif;?>
             <?php if(isset($_SESSION['pseudo'])):?>
+            Bienvenue <b><?= strtoupper($_SESSION['pseudo']) ?></b>
             <a href="login.php?logout">Se déconnecter</a>
             <?php else:?>
             <a href="#login" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
             <a href="#inscription" id="signUp_btn">Créer un compte</a>
+            <?php endif;?>
+            <?php if($_SESSION['admin']):?>
+            <a href="/admin/index.php">Tableau de bord</a>
             <?php endif;?>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
