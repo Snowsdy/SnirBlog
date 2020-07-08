@@ -1,4 +1,9 @@
 <?php
+/**
+ * Définition de constantes pour m'aider à me retrouver dans le répertoire.
+ */
+define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
+define('BASE_URL', 'http://localhost:8888/');
 
 /**
  * Fonction qui tronque une chaîne de caractères
@@ -39,7 +44,7 @@ function getArticles()
 
 /**
  * Fonction qui récupère uniquement les articles publiés.
- * Paramètre @publie (si l'article est publié --> booléen).
+ * Paramètre $publie (si l'article est publié --> booléen).
  */
 function getArticlesPublies($publie)
 {
@@ -144,11 +149,11 @@ function addUserPublic($nom, $prenom, $email, $pseudo, $mdp)
  * content --> contenu du commentaire
  * publication_time --> date de publication
  */
-function getComments($id)
+function getComments($idArticle)
 {
     require 'config/connect.php';
-    $req = $bdd->prepare('SELECT * FROM comments WHERE articleID = ?');
-    $req->execute(array($id));
+    $req = $bdd->prepare('SELECT * FROM comments WHERE idArticle = ?');
+    $req->execute(array($idArticle));
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
     $req->closeCursor();

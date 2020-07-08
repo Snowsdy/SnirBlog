@@ -15,8 +15,9 @@
             </a>
             <a id="signUp_btn">Créer un compte</a>
             <?php endif;?>
+            <a href="<?= BASE_URL . "index.php" ?>">Accueil</a>
             <?php if($_SESSION['admin']):?>
-            <a href="/admin/index.php">Tableau de bord</a>
+            <a href="<?= BASE_URL . "admin/index.php" ?>">Tableau de bord</a>
             <?php endif;?>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
