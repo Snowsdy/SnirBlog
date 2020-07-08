@@ -12,3 +12,21 @@ Enjoy :)
 - 07/07/2020 : Writting register.php, perform article.php
 
 *__Issue__: Créer un 'header.php' comportant le menu ainsi que son style propre distinct des autres styles.*
+
+### Log des users :
+
+---
+
+-   Pseudo: **Snowsdy**
+-   Mdp: **MoRello2598@#-=+**
+
+-   Pseudo: **darkdevs**
+-   Mdp: **Evan**
+
+-   Pseudo: **Coba**
+-   Mdp: **Coba2000**
+
+-   Pseudo: **fanou**
+-   Mdp: **admin**
+
+---
