@@ -4,8 +4,9 @@ let modal = document.getElementById('login');
 let btn = document.getElementById('button');
 let span = document.getElementById('close');
 
-btn.onclick = function(){
-    modal.style.display = ""
-}
-
-
+btn.addEventListener('click',(e) => {
+    modal.style.display = "block";
+})
+span.addEventListener('click',(e) => {
+    modal.style.display = "none";
+}g)
