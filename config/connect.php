@@ -1,10 +1,10 @@
 <?php
 $tokenpath = array(
     'host' => 'localhost',
-    'dbname' => 'blogtest',
+    'dbname' => 'blogTest',
     'charset' => 'utf8',
-    'name' => 'root',
-    'mdp' => 'root'    
+    'name' => 'Snows',
+    'mdp' => 'MoRello2598@#-=+'    
 );
 $bdd = new PDO('mysql:host='.$tokenpath['host'].';dbname='.$tokenpath['dbname'].';charset='.$tokenpath['charset'], $tokenpath['name'], $tokenpath['mdp']);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -32,10 +32,10 @@ $articles = getArticles();
 
         <ul class="menu">
             <a href="index.php">Accueil</a>
-            <a href="#" class="button" id="button">
+            <a href="#" id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
             </a>
-            <a href="#">Créer un compte</a>
+            <a href="#" id="signUp_btn">Créer un compte</a>
             <a href="#">A propos</a>
             <a href="#">Nous contacter</a>
             <?php if(isset($_SESSION['admin'])):?>
@@ -119,16 +119,16 @@ $articles = getArticles();
                 <form class="box" action="register.php" method="post">
                     <h1>Login</h1>
                     <div class="nom_prenom">
-                        <input type="text" name="" placeholder="prenom">
-                        <input type="text" name="" placeholder="nom">
+                        <input type="text" name="prenom" placeholder="Prénom">
+                        <input type="text" name="nom" placeholder="Nom">
                     </div>
-                    <input type="text" name="" class="marg" cplaceholder="pseudo">
-                    <input type="text" name="" class="marg" placeholder="email">
+                    <input type="text" name="pseudo" class="marg" placeholder="Pseudo">
+                    <input type="text" name="email" class="marg" placeholder="Email">
                     <div class="nom_prenom">
-                        <input type="password" name="" placeholder="Password">
-                        <input type="password" name="" placeholder="rePassword">
+                        <input type="password" name="mdp" placeholder="Mot de passe">
+                        <input type="password" name="confMdp" placeholder="Confirmation Mdp">
                     </div>
-                    <input type="submit" name="" value="inscription">
+                    <input type="submit" value="inscription">
                 </form>
         </div>
     </div>
