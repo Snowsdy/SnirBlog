@@ -20,8 +20,8 @@
             <input type="text" name="pseudo" class="marg" placeholder="Pseudo">
             <input type="text" name="email" class="marg" placeholder="Email">
             <div class="nom_prenom">
-                <input type="password" name="mdp" placeholder="Mot de passe">
-                <input type="password" name="confMdp" placeholder="Confirmation Mdp">
+                <input type="password" id="password" name="mdp" placeholder="Mot de passe">
+                <input type="password" id="passwordVerif" name="confMdp" placeholder="Confirmation Mdp">
             </div>
             <input type="submit" value="Inscription">
         </form>
