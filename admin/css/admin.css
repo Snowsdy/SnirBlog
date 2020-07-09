@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url("../upload/bck.jpg") no-repeat fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}
+.content {
+    background-color: rgba(10, 51, 53, 0.7);
+}
+
+/* LEFT MENU */
+
+.left-menu {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 100%;
+    width: 16%;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #04284b;
+    border: 2px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding: 5px;
+}
+
+.left-menu a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    color: honeydew;
+}
+
+@media screen and (max-width: 800px) {
+    .left-menu {
+        width: 32%;
+    }
+}

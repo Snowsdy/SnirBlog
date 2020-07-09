@@ -1,4 +1,5 @@
 <?php 
+session_start();
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     header('Location:'. BASE_URL .'index.php');
 }else {

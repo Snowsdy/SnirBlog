@@ -40,7 +40,6 @@ body {
 }
 
 .article .content {
-    background-color: rgba(10, 51, 53, 0.8);
     border-radius: 5px;
     text-shadow: black 1px 1px;
     font-size: 18px;

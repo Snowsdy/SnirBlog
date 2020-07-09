@@ -7,8 +7,8 @@
 
         <ul class="menu">
             <?php if(isset($_SESSION['pseudo'])):?>
-            Bienvenue <b><?= strtoupper($_SESSION['pseudo']) ?></b>
-            <a href="login.php?logout">Se déconnecter</a>
+            <a style="color: black;">Bienvenue <b style="color: black;"><?= strtoupper($_SESSION['pseudo']) ?></b></a>
+            <a href="<?= BASE_URL . "login.php?logout" ?>">Se déconnecter</a>
             <?php else:?>
             <a id="login_btn">
                 <i class="fa fa-sign-in"></i> Se connecter
