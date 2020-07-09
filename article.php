@@ -45,7 +45,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $article->title?></title>
-    <link rel="stylesheet" href="css/accueil.css">
+    <link rel="stylesheet" href="css/loginRegister.css">
     <link rel="stylesheet" href="admin/css/header.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
