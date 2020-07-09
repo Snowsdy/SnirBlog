@@ -21,7 +21,6 @@ body{
     height: 100%;
     width: 16%;
     position: relative;
-    z-index: 1;
     top: 0;
     left: 0;
     background-color: #04284b;

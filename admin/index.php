@@ -10,6 +10,9 @@ if ($_SESSION['admin']) :
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/admin.css">
@@ -24,8 +27,8 @@ if ($_SESSION['admin']) :
         <div class="left-menu">
             <ul class="left-in-menu">
                 <a><b style="color: black;">Administration :</b></a>
-                <a href="#">Gestion des Utilisateurs</a>
                 <a href="#">Gestion des Articles</a>
+                <a href="#">Gestion des Utilisateurs</a>
                 <a href="#">Gestion des Commentaires</a>
             </ul>
         </div>
@@ -33,7 +36,7 @@ if ($_SESSION['admin']) :
             <p>
                 Bienvenue <b style="color: black; text-shadow: none;"><?= $_SESSION['pseudo'] ?></b> dans le tableau de bord du SnirBlog !
                 Afin de pouvoir gérer tous les articles, les utilisateurs
-                ou encore les commentaires d'un article. Nous vous invitons à vous rediriger
+                ou encore les commentaires d'un article nous vous invitons à vous rediriger
                 vers le menu à gauche où chaque catégorie y est disponible.<br />
                 Sur ce, bonne gestion !
             </p>
