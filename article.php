@@ -47,6 +47,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     <title><?= $article->title?></title>
     <link rel="stylesheet" href="css/loginRegister.css">
     <link rel="stylesheet" href="admin/css/header.css">
+    <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
@@ -56,7 +57,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 </head>
 
 <body>
-    <?php include ROOT_PATH . '/admin/includes/header.php'?>
+    <?php include 'admin/includes/header.php'?>
     <div class="article">
 
         <div class="pre-info">
@@ -88,24 +89,19 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         <?php endif;?>
 
         <div class="comments">
-            <h2>Commentaires :</h2> 
-
-            <?php //foreach($comments as $com):?>
-                <h3><?php //$com->author ?></h3>
-                <time><?php //$com->date ?></time>
-                <p><?php //$com->comment ?></p>
-            <?php //endforeach;?>
+            <h2>Commentaires :</h2>
         </div>
 
-        <!-- Login -->
-        <?php include ROOT_PATH . 'admin/includes/login.php'?>
-        <!-- Inscription -->
-        <?php include ROOT_PATH . 'admin/includes/inscription.php'?>
-        <!-- Footer -->
-        <?php include ROOT_PATH .'admin/includes/footer.php'?>
-        <!-- Script Log In / Register -->
-        <script src="js/main.js"></script>
     </div>
+
+    <!-- Login -->
+    <?php include 'admin/includes/login.php'?>
+    <!-- Inscription -->
+    <?php include 'admin/includes/inscription.php'?>
+    <!-- Footer -->
+    <?php include 'admin/includes/footer.php'?>
+    <!-- Script Log In / Register -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
