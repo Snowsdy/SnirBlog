@@ -1,6 +1,6 @@
 <div id="login" class="login">
     <div class="login-content">
-        <form class="box" action="login.php" method="post">
+        <form class="box" action="<?= BASE_URL . "login.php" ?>" method="post">
             <span class="close" id="close">&times;</span>
             <h1>Login</h1>
             <b style="color: red;">

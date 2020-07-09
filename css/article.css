@@ -1,13 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    color: honeydew;
 }
 
 body {
     background: url("../admin/upload/bck.jpg") no-repeat center fixed;
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
+    color: honeydew;
 }
 
 /* Article */
@@ -32,8 +32,8 @@ body {
 
 .article img {
     border-radius: 50px;
-    padding: 10px;
-    margin-bottom: 5px;
+    border: 2px solid black;
+    margin-bottom: 10px;
     width: 40%;
     height: 60%;
     position: relative;

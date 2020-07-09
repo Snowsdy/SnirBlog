@@ -1,6 +1,6 @@
 <div id="inscription" class="inscription">
     <div class="login-content">
-        <form class="box" action="register.php" method="post">
+        <form class="box" action="<?= BASE_URL . "register.php" ?>" method="post">
             <span class="close" id="close">&times;</span>
             <h1>inscription</h1>
             <b style="color: red;">
