@@ -29,6 +29,41 @@ if ($_SESSION['admin']) :
                 <a href="#">Gestion des Commentaires</a>
             </ul>
         </div>
+        <div class="message">
+            <p>
+                Bienvenue <b style="color: black; text-shadow: none;"><?= $_SESSION['pseudo'] ?></b> dans le tableau de bord du SnirBlog !
+                Afin de pouvoir gérer tous les articles, les utilisateurs
+                ou encore les commentaires d'un article. Nous vous invitons à vous rediriger
+                vers le menu à gauche où chaque catégorie y est disponible.<br />
+                Sur ce, bonne gestion !
+            </p>
+        </div>
+        <div class="fct">
+            <p>Pour ce qui est des <b>fonctionnalités :</b></p>
+            <ul>
+                <li class="tete"><b>Articles :</b>
+                    <ul>
+                        <li>Add</li>
+                        <li>Edit</li>
+                        <li>Publish</li>
+                        <li>Remove</li>
+                    </ul>
+                </li>
+                <li class="tete"><b>Utilisateurs :</b>
+                    <ul>
+                        <li>Add</li>
+                        <li>Edit</li>
+                        <li>Remove</li>
+                    </ul>
+                </li>
+                <li class="tete"><b>Commentaires :</b>
+                    <ul>
+                        <li>Edit</li>
+                        <li>Remove</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <?php include 'includes/footer.php'?>
     </div>
 
@@ -37,5 +72,5 @@ if ($_SESSION['admin']) :
 </html>
 
 <?php else :?>
-    <?php header('Location: ' . BASE_URL . 'index.php');?>
+<?php header('Location: ' . BASE_URL . 'index.php');?>
 <?php endif;?>

@@ -10,6 +10,7 @@ body{
 }
 .content {
     background-color: rgba(10, 51, 53, 0.7);
+    color: honeydew;
 }
 
 /* LEFT MENU */
@@ -35,13 +36,55 @@ body{
 .left-menu a {
     padding: 8px;
     text-decoration: none;
+    color: honeydew;
     font-size: 25px;
     display: block;
-    color: honeydew;
+    transition: 0.4s;
+}
+
+.left-menu a:hover {
+    color: #3498db;
+}
+
+.message {
+    font-weight: 700;
+    text-shadow: 1px 1px black;
+    position: relative;
+    top: -100%;
+    right: -18%;
+    height: 0.01%;
+    width: 82%;
+}
+
+.fct {
+    text-shadow: 1px 1px black;
+    position: relative;
+    top: -82%;
+    right: -18%;
+    height: 0.01%;
+    width: 82%;
+}
+
+.fct ul {
+    position: relative;
+    right: -2%;
+    width: 82%;
+}
+
+.fct ul .tete {
+    margin-bottom: 12px;
 }
 
 @media screen and (max-width: 800px) {
     .left-menu {
         width: 32%;
+    }
+    .message , .fct{
+        width: 64%;
+        right: -36%;
+    }
+
+    .fct ul {
+        right: -5%;
     }
 }
