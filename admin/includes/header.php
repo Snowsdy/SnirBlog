@@ -20,7 +20,6 @@
             <a href="<?= BASE_URL . "admin/index.php" ?>">Tableau de bord</a>
             <?php endif;?>
             <a href="#">A propos</a>
-            <a href="#">Nous contacter</a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
