@@ -36,4 +36,6 @@ if ($_SESSION['admin']) :
 
 </html>
 
+<?php else :?>
+    <?php header('Location: ' . BASE_URL . 'index.php');?>
 <?php endif;?>
