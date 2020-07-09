@@ -26,7 +26,7 @@ function tronque_chaine($chaine, $lg_max = 60, $end = '...')
  * Table 'articles' :
  * id --> clé primaire
  * title --> titre de l'article
- * idUser --> auteur de l'article
+ * author --> auteur de l'article
  * content --> contenu de l'article
  * publication_time --> date de publication
  * publie --> booléen si article publié ou pas
@@ -34,7 +34,7 @@ function tronque_chaine($chaine, $lg_max = 60, $end = '...')
  */
 function getArticles()
 {
-    require 'config/connect.php';
+    require '../../config/connect.php';
     $req = $bdd->prepare('SELECT * FROM articles ORDER BY id DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
@@ -44,13 +44,12 @@ function getArticles()
 
 /**
  * Fonction qui récupère uniquement les articles publiés.
- * Paramètre $publie (si l'article est publié --> booléen).
  */
-function getArticlesPublies($publie)
+function getArticlesPublies()
 {
     require 'config/connect.php';
-    $req = $bdd->prepare('SELECT * FROM articles WHERE publie = ?');
-    $req->execute(array($publie));
+    $req = $bdd->prepare('SELECT * FROM articles WHERE publie = 1');
+    $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
     $req->closeCursor();
@@ -63,7 +62,7 @@ function showArticle($article)
 {
     print '<div class="post">';
     print '  <div class="inner-post">';
-    print "      <img src=\"". $article->path_img . "\"/>";
+    print "      <img src=\"" . '/' . $article->path_img . "\"/>";
     print '      <div class="post-info">';
     print "          <h4><a href=\"article.php?id=" . $article->id . "\">" . tronque_chaine($article->title, 22) . "</a></h4>";
     print '          <div>';
@@ -129,11 +128,11 @@ function getUser($param, $valParam)
 /**
  * Fonction qui ajoute un nouvel utilisateur.
  */
-function addUserPublic($nom, $prenom, $email, $pseudo, $mdp)
+function addUser($nom, $prenom, $email, $pseudo, $mdp, $admin = 0)
 {
     require 'config/connect.php';
-    $req = $bdd->prepare("INSERT INTO users (nom, pseudo, prenom, email, mdp, creation_time, admin) VALUES (?, ?, ?, ?, ?, NOW(), 0)");
-    $req->execute(array($nom, $pseudo, $prenom, $email, $mdp));
+    $req = $bdd->prepare("INSERT INTO users (nom, pseudo, prenom, email, mdp, creation_time, admin) VALUES (?, ?, ?, ?, ?, NOW(), ?)");
+    $req->execute(array($nom, $pseudo, $prenom, $email, $mdp, $admin));
     $req->closeCursor();
 }
 

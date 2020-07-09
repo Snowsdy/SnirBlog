@@ -17,6 +17,7 @@ if ($_SESSION['admin']) :
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/left_menu.css">
     <title>Tableau de bord - <?= $_SESSION['pseudo'] ?></title>
 </head>
 
@@ -24,14 +25,7 @@ if ($_SESSION['admin']) :
 
     <div class="content">
         <?php include 'includes/header.php'?>
-        <div class="left-menu">
-            <ul class="left-in-menu">
-                <a><b style="color: black;">Administration :</b></a>
-                <a href="#">Gestion des Articles</a>
-                <a href="#">Gestion des Utilisateurs</a>
-                <a href="#">Gestion des Commentaires</a>
-            </ul>
-        </div>
+        <?php include 'includes/left_menu.php'?>
         <div class="message">
             <p>
                 Bienvenue <b style="color: black; text-shadow: none;"><?= $_SESSION['pseudo'] ?></b> dans le tableau de bord du SnirBlog !

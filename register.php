@@ -45,7 +45,7 @@ if ($_POST) {
     }
 
     if (count($_SESSION['erreurRegister']) == 0) {
-        addUserPublic($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $mdp);
+        addUser($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $mdp);
         $newUser = getUser('pseudo', $_POST['pseudo']);
 
         $_SESSION['id'] = $newUser->id;
