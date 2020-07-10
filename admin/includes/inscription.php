@@ -18,7 +18,7 @@
                 <input type="text" name="nom" placeholder="Nom">
             </div>
             <input type="text" name="pseudo" class="marg" placeholder="Pseudo">
-            <input type="text" name="email" class="marg" placeholder="Email">
+            <input type="email" name="email" class="marg" placeholder="Email">
             <div class="nom_prenom">
                 <input type="password" id="password" name="mdp" placeholder="Mot de passe">
                 <input type="password" id="passwordVerif" name="confMdp" placeholder="Confirmation Mdp">

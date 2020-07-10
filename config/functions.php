@@ -34,7 +34,7 @@ function tronque_chaine($chaine, $lg_max = 60, $end = '...')
  */
 function getArticles()
 {
-    require '../../config/connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('SELECT * FROM articles ORDER BY id DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
@@ -47,7 +47,7 @@ function getArticles()
  */
 function getArticlesPublies()
 {
-    require 'config/connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('SELECT * FROM articles WHERE publie = 1');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
@@ -80,7 +80,7 @@ function showArticle($article)
  */
 function getArticle($id)
 {
-    require 'config/connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('SELECT * FROM articles WHERE id = ?');
     $req->execute(array($id));
     if ($req->rowCount() == 1) {
@@ -99,7 +99,7 @@ function getArticle($id)
  */
 function getUsers()
 {
-    require 'config/connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('SELECT * FROM users ORDER BY id DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
@@ -112,7 +112,7 @@ function getUsers()
  */
 function getUser($param, $valParam)
 {
-    require 'connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare("SELECT * FROM users WHERE $param = ?");
     $req->execute(array($valParam));
     if ($req->rowCount() == 1) {
@@ -130,7 +130,7 @@ function getUser($param, $valParam)
  */
 function addUser($nom, $prenom, $email, $pseudo, $mdp, $admin = 0)
 {
-    require 'config/connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare("INSERT INTO users (nom, pseudo, prenom, email, mdp, creation_time, admin) VALUES (?, ?, ?, ?, ?, NOW(), ?)");
     $req->execute(array($nom, $pseudo, $prenom, $email, $mdp, $admin));
     $req->closeCursor();
@@ -150,7 +150,7 @@ function addUser($nom, $prenom, $email, $pseudo, $mdp, $admin = 0)
  */
 function getComments($idArticle)
 {
-    require 'config/connect.php';
+    require ROOT_PATH . 'config/connect.php';
     $req = $bdd->prepare('SELECT * FROM comments WHERE idArticle = ?');
     $req->execute(array($idArticle));
     $data = $req->fetchAll(PDO::FETCH_OBJ);

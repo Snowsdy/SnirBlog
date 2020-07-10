@@ -31,6 +31,7 @@ if($_SESSION['admin']):?>
             <!-- Affichage des articles sous cette forme :
         - ID    Titre   Actions:    Edit    Remove  Publish/Unpublish
         -->
+            <button class="add_btn"><a href="add.php">Ajouter</a></button>
             <table>
                 <thead>
                     <th>Id</th>
@@ -43,11 +44,11 @@ if($_SESSION['admin']):?>
                     <tr>
                         <td><?= $article->id ?></td>
                         <td>
-                            <a href="#"><?= $article->title ?></a>
+                            <a href="<?= BASE_URL . "article.php?id=$article->id" ?>"><?= $article->title ?></a>
                         </td>
                         <td><?= $article->author ?></td>
                         <td>
-                            <a href="#" class="edit">
+                            <a href="edit.php?id=<?= $article->id ?>" class="edit">
                                 Edit
                             </a>
                         </td>
@@ -59,9 +60,9 @@ if($_SESSION['admin']):?>
                         <td>
                             <a href="#" class="publish">
                                 <?php if($article->publie):?>
-                                    Unpublish
+                                Unpublish
                                 <?php else:?>
-                                    Publish
+                                Publish
                                 <?php endif;?>
                             </a>
                         </td>
