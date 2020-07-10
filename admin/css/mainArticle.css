@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    background: url("../upload/bck.jpg") no-repeat fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}
+
+.bck {
+    background: rgba(10, 51, 53, 0.7);
+}
+
+.contenu {
+    text-shadow: 1px 1px black;
+    position: relative;
+    top: -100%;
+    right: -18%;
+    height: 0.01%;
+    width: 82%;
+    
+}
+
+table {
+    width: 98%;
+    border-collapse: collapse;
+    font-size: 1.1em;
+    color: honeydew ;
+}
+  
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+td a {
+    color: honeydew;
+}
+
+.edit {
+    color: blue;
+}
+
+.delete {
+    color: red;
+}
+
+.publish {
+    color: orangered;
+}
+
+@media screen and (max-width: 800px) {
+    table {
+        position: relative;
+        width: 75%;
+        right: -22%;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+}
