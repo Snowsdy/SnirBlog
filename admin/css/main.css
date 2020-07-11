@@ -81,5 +81,7 @@ td a {
         padding: 15px;
     }
 
-
+    button {
+        right: -22%
+    }
 }

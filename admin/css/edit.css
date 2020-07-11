@@ -18,23 +18,96 @@ body {
     color: honeydew;
     text-shadow: 1px 1px black;
     position: relative;
-    top: -100%;
+    top: -102.85%;
     right: -18%;
-    height: 0.01%;
+    height: 0%;
     width: 81%;
 }
 
-form {
+form , textarea, input{
     text-align: center;
     padding: 5px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
-form input {
+form input, form textarea {
     width: 80%;
     margin-bottom: 5px;
     text-align: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border: 2px solid black;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 7px;
+    width: 7px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(42px);
+    -ms-transform: translateX(42px);
+    transform: translateX(42px);
+}
+  
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+input[type = "submit"] {
+    width: 140px;
+    color: black;
+    font-weight: bold;
+    transition: .4s linear;
+}
+
+input[type = "submit"]:hover {
+    background-color: green;
+}
+
+input[type = "file"]{
+    width: 30%;
 }
 
 @media screen and (max-width: 800px) {
@@ -42,5 +115,8 @@ form input {
         position: relative;
         width: 75%;
         right: -22%;
+    }
+    input[type = "file"]{
+        width: 78%;
     }
 }

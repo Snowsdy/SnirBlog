@@ -16,6 +16,7 @@ if ($_SESSION['admin']) {
 ?>
 
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,7 @@ if ($_SESSION['admin']) {
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/left_menu.css">
 </head>
+
 <body>
     <div class="bck">
         <?php include ROOT_PATH . '/admin/includes/header.php'?>
@@ -36,7 +38,7 @@ if ($_SESSION['admin']) {
 
         <div class="contenu">
             <!-- Formulaire -->
-            <form action="edit.php" method="post">
+            <form action="edit.php" method="post" enctype="multipart/form-data">
                 <h1>Modification</h1>
                 <br>
                 <label for="title">Titre de l'article :</label><br>
@@ -45,11 +47,28 @@ if ($_SESSION['admin']) {
                 <label for="author">Auteur de l'article :</label><br>
                 <input type="text" name="author" id="author" value="<?= $article->author ?>">
                 <br>
-                <!-- A suivre... -->
+                <label for="content">Contenu :</label><br>
+                <!-- Penser à ajouter un éditeur du style stackedit -->
+                <textarea name="centent" id="content" rows="6"><?= $article->content ?></textarea>
+                <br>
+                <label for="publication_time">Date de publication :</label><br>
+                <input type="text" name="publication_time" placeholder="AAAA-MM-JJ HH-mm-SS" id="publication_time" value="<?= $article->publication_time ?>">
+                <br>
+                <label for="publie">Publié ?</label><br>
+                <label class="switch">
+                    <input type="checkbox" name="publie" id="publie">
+                    <span class="slider round"></span>
+                </label>
+                <br>
+                <label for="path_img">Image de l'article :</label><br>
+                <input type="file" name="img" id="img" accept="image/png,image/jpeg,image/gif,image/jpg">
+                <br>
+                <input type="submit" value="Valider" name="submit" id="submit">
             </form>
         </div>
 
         <?php include ROOT_PATH . '/admin/includes/footer.php'?>
     </div>
 </body>
+
 </html>

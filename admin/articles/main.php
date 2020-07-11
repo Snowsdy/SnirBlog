@@ -17,7 +17,7 @@ if($_SESSION['admin']):?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/mainArticle.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/left_menu.css">
 </head>
