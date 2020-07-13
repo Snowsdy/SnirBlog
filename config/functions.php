@@ -92,6 +92,22 @@ function getArticle($id)
     $req->closeCursor();
 }
 
+function addArticle($title, $author, $content, $publie, $path_img)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('INSERT INTO articles (title, author, content, publication_time, publie, path_img) VALUES (?, ?, ?, NOW(), ?, ?)');
+    $req->execute(array($title, $author, $content, $publie, $path_img));
+    $req->closeCursor();
+}
+
+function editArticle($id, $title, $author, $content, $publication_time, $publie, $path_img)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('UPDATE articles SET id = ?, title = ? , author = ?, content = ?, publication_time = ?, publie = ?, path_img = ? WHERE id = ?');
+    $req->execute(array($id, $title, $author, $content, $publication_time, $publie, $path_img, $id));
+    $req->closeCursor();
+}
+
 // USERS
 
 /**
