@@ -58,7 +58,7 @@ if($_SESSION['admin']):?>
                             </a>
                         </td>
                         <td>
-                            <a href="#" class="publish">
+                            <a href="publish.php?id=<?= $article->id ?>" class="publish">
                                 <?php if($article->publie):?>
                                 Unpublish
                                 <?php else:?>

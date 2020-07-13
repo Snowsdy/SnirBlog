@@ -108,6 +108,14 @@ function editArticle($id, $title, $author, $content, $publication_time, $publie,
     $req->closeCursor();
 }
 
+function setPublie($id, $publie)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('UPDATE articles SET publie = ? WHERE id = ?');
+    $req->execute(array($publie, $id));
+    $req->closeCursor();
+}
+
 // USERS
 
 /**
