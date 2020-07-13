@@ -116,6 +116,14 @@ function setPublie($id, $publie)
     $req->closeCursor();
 }
 
+function removeArticle($id)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('DELETE FROM articles WHERE id = ?');
+    $req->execute(array($id));
+    $req->closeCursor();
+}
+
 // USERS
 
 /**

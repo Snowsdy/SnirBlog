@@ -53,7 +53,7 @@ if($_SESSION['admin']):?>
                             </a>
                         </td>
                         <td>
-                            <a href="#" class="delete">
+                            <a href="delete.php?id=<?= $article->id ?>" class="delete">
                                 Delete
                             </a>
                         </td>
