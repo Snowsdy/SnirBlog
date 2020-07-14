@@ -1,16 +1,8 @@
 /* FOOTER */
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Ubuntu', sans-serif;
-}
 
 .footer {
-    position: relative;
     text-align: center;
     padding: 5px;
-    left: 0;
-    bottom: 0;
     border: black 2px solid;
     background-color: #04284b;
     color: black;

@@ -38,7 +38,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     $article = getArticle($id);
     $user = getUser('pseudo', $_SESSION['pseudo']);
     $count = getCommentsCount($article->id);
-    if ($count != NULL) {
+    if ($count->total != 0) {
         $comments = getComments($article->id);
     }
 }
@@ -54,6 +54,8 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     <link rel="stylesheet" href="admin/css/header.css">
     <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -62,58 +64,60 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 </head>
 
 <body>
-    <?php include 'admin/includes/header.php'?>
-    <div class="article">
+    <div class="bck">
+        <?php include 'admin/includes/header.php'?>
+        <div class="article">
 
-        <div class="pre-info">
-            <h1><?=$article->title?></h1>
-            <h2>By <?= $article->author ?></h2>
-            <time>Le <?= $article->publication_time ?></time>
-        </div>
+            <div class="pre-info">
+                <h1><?=$article->title?></h1>
+                <h2>By <?= $article->author ?></h2>
+                <time>Le <?= $article->publication_time ?></time>
+            </div>
 
-        <center><img src="<?= $article->path_img ?>"></center>
+            <center><img src="<?= $article->path_img ?>"></center>
 
-        <div class="content">
-            <p><?=$article->content?></p>
-        </div>
+            <div class="content">
+                <p><?=$article->content?></p>
+            </div>
 
-        <hr />
+            <hr />
 
-        <?php 
+            <?php 
         if (isset($succes)) {
             echo $succes;
         }
         if(!empty($errors)):?>
-        <?php foreach ($errors as $error):?>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="alert alert-danger"><?= $error ?></div>
+            <?php foreach ($errors as $error):?>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-danger"><?= $error ?></div>
+                </div>
             </div>
-        </div>
-        <?php endforeach;?>
-        <?php endif;?>
-
-        <div class="comments">
-            <h2>Commentaires :</h2><br>
-            <?php if ($count != NULL && isset($_SESSION['pseudo'])):?>
-                <?php 
-                foreach ($comments as $comment) {
-                    showComment($comment);
-                }
-                ?>
-            <?php else:?>
-                <!-- Si pas connecté alors : -->
-                <?= noComment() ?>
+            <?php endforeach;?>
             <?php endif;?>
-        </div>
 
+            <div class="comments">
+                <h2>Commentaires :</h2><br>
+                <?php if ($count->total != 0 && isset($_SESSION['pseudo'])):?>
+                    <?php 
+                    foreach ($comments as $comment) {
+                        showComment($comment);
+                    }
+                    ?>
+                <?php else:?>
+                <!-- Si pas connecté alors : -->
+                    <?= noComment() ?>
+                <?php endif;?>
+            </div>
+
+        </div>
+        <!-- Footer -->
+        <?php include 'admin/includes/footer.php'?>
+        <!-- Login -->
+        <?php include 'admin/includes/login.php'?>
+        <!-- Inscription -->
+        <?php include 'admin/includes/inscription.php'?>
     </div>
-    <!-- Footer -->
-    <?php include 'admin/includes/footer.php'?>
-    <!-- Login -->
-    <?php include 'admin/includes/login.php'?>
-    <!-- Inscription -->
-    <?php include 'admin/includes/inscription.php'?>
     <!-- Script Log In / Register -->
     <script src="js/main.js"></script>
 </body>

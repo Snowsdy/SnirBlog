@@ -218,7 +218,7 @@ function getCommentsCount($idArticle)
     require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('SELECT count(*) AS total FROM comments WHERE idArticle = ?');
     $req->execute(array($idArticle));
-    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    $data = $req->fetch(PDO::FETCH_OBJ);
     return $data;
     $req->closeCursor();
 }
