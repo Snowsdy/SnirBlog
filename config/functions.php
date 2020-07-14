@@ -150,8 +150,6 @@ function getUser($param, $valParam)
     if ($req->rowCount() == 1) {
         $data = $req->fetch(PDO::FETCH_OBJ);
         return $data;
-    } else {
-        header('Location: index.php');
     }
     $req->closeCursor();
 
@@ -204,10 +202,42 @@ function removeUser($id)
  */
 function getComments($idArticle)
 {
-    require ROOT_PATH . 'config/connect.php';
+    require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('SELECT * FROM comments WHERE idArticle = ?');
     $req->execute(array($idArticle));
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
     $req->closeCursor();
 }
+
+/**
+ * Fonction qui retourne le nombre de commentaires selon l'id de l'article.
+ */
+function getCommentsCount($idArticle)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('SELECT count(*) AS total FROM comments WHERE idArticle = ?');
+    $req->execute(array($idArticle));
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->closeCursor();
+}
+
+function showComment($comment)
+{
+    print '<div class="comment">';
+    print "    <h2>$comment->title</h2>";
+    print "    <h3>De : $comment->author</h3>";
+    print "    <h4>Fait le : $comment->publication_time</h4>";
+    print "    <p>$comment->content</p>";
+}
+
+/**
+ * Fonction utilisé si pas de commentaires pour un article.
+ */
+function noComment()
+{
+    print '<h3>Pas de Commentaires !!!</h3>';
+}
+
+// AUTRES

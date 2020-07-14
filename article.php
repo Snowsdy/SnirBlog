@@ -36,7 +36,11 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     }
 
     $article = getArticle($id);
-    //$comments = getComments($id);
+    $user = getUser('pseudo', $_SESSION['pseudo']);
+    $count = getCommentsCount($article->id);
+    if ($count != NULL) {
+        $comments = getComments($article->id);
+    }
 }
 ?>
 
@@ -90,17 +94,26 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         <?php endif;?>
 
         <div class="comments">
-            <h2>Commentaires :</h2>
+            <h2>Commentaires :</h2><br>
+            <?php if ($count != NULL && isset($_SESSION['pseudo'])):?>
+                <?php 
+                foreach ($comments as $comment) {
+                    showComment($comment);
+                }
+                ?>
+            <?php else:?>
+                <!-- Si pas connecté alors : -->
+                <?= noComment() ?>
+            <?php endif;?>
         </div>
 
     </div>
-
+    <!-- Footer -->
+    <?php include 'admin/includes/footer.php'?>
     <!-- Login -->
     <?php include 'admin/includes/login.php'?>
     <!-- Inscription -->
     <?php include 'admin/includes/inscription.php'?>
-    <!-- Footer -->
-    <?php include 'admin/includes/footer.php'?>
     <!-- Script Log In / Register -->
     <script src="js/main.js"></script>
 </body>
