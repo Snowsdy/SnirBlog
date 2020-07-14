@@ -98,15 +98,22 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
             <div class="comments">
                 <h2>Commentaires :</h2><br>
-                <?php if ($count->total != 0 && isset($_SESSION['pseudo'])):?>
-                    <?php 
-                    foreach ($comments as $comment) {
-                        showComment($comment);
-                    }
-                    ?>
+                <?php if (isset($_SESSION['pseudo'])):?>
+                    <?php if($count->total != 0):?>
+                        <?php 
+                            foreach ($comments as $comment) {
+                            showComment($comment);
+                            }
+                        ?>
+                    <?php else:?>
+                        <?= noComment() ?>
+                    <?php endif?>
+                    <a href="article.php?id=<?= $article->id?>">Envoyer</a>
                 <?php else:?>
                 <!-- Si pas connecté alors : -->
-                    <?= noComment() ?>
+                    <p style="color: red; text-shadow: 1px 1px black;">
+                        Vous devez vous connecter afin de voir les commentaires.
+                    </p>
                 <?php endif;?>
             </div>
 

@@ -237,7 +237,7 @@ function showComment($comment)
  */
 function noComment()
 {
-    print '<h3>Pas de Commentaires !!!</h3>';
+    print '<h3>Pas de Commentaires !!!</h3><br>';
 }
 
 // AUTRES
