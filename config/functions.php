@@ -168,6 +168,28 @@ function addUser($nom, $prenom, $email, $pseudo, $mdp, $admin = 0)
     $req->closeCursor();
 }
 
+/**
+ * Fonction qui modifie un utilisateur.
+ */
+function editUser($id, $nom, $prenom, $email, $pseudo, $mdp, $admin)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare("UPDATE users SET id = ?, nom = ? , prenom = ?, pseudo = ?, email = ?, mdp = ?, admin = ? WHERE id = ?");
+    $req->execute(array($id, $nom, $prenom, $pseudo, $email, $mdp, $admin, $id));
+    $req->closeCursor();
+}
+
+/**
+ * Fonction qui supprime un utilisateur.
+ */
+function removeUser($id)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('DELETE FROM users WHERE id = ?');
+    $req->execute(array($id));
+    $req->closeCursor();
+}
+
 // COMMENTS
 
 /**

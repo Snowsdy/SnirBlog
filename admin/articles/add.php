@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
     }
 
     $publie = $_POST['publie'];
-    if ($publie == null) {
+    if ($publie == NULL) {
         $publie = 0;
     } else {
         $publie = 1;
