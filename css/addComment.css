@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.addComment-form {
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.addComment-form #pseudo {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.addComment-form #title {
+    border: 2px solid black;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.addComment-form #comment-label {
+    margin-top: 10px;
+}
+
+.addComment-form #comment {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.addComment-form #submit {
+    border: 2px solid black;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    transition: .4s;
+}
+
+.addComment-form #submit:hover {
+    background-color: green;
+    cursor: pointer;
+}

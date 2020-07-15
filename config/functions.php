@@ -227,9 +227,10 @@ function showComment($comment)
 {
     print '<div class="comment">';
     print "    <h2>$comment->title</h2>";
-    print "    <h3>De : $comment->author</h3>";
-    print "    <h4>Fait le : $comment->publication_time</h4>";
+    print "    <p>De : <b>$comment->author</b></p>";
+    print "    <i>Fait le : $comment->publication_time</i>";
     print "    <p>$comment->content</p>";
+    print "</div>";
 }
 
 /**
@@ -240,4 +241,13 @@ function noComment()
     print '<h3>Pas de Commentaires !!!</h3><br>';
 }
 
-// AUTRES
+/**
+ * Fonction qui ajoute un commentaire à un article précis.
+ */
+function addComment($idArticle, $idUser, $title, $author, $content)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('INSERT INTO comments (idArticle, idUser, title, author, content, publication_time) VALUES (?, ?, ?, ?, ?, NOW())');
+    $req->execute(array($idArticle, $idUser, $title, $author, $content));
+    $req->closeCursor();
+}

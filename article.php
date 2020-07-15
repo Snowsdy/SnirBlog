@@ -8,33 +8,6 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     extract($_GET);
     $id = strip_tags($id);
 
-    // A modifier
-    if(!empty($_POST))
-    {
-        extract($_POST);
-        $errors = array();
-
-        $idUser = strip_tags($idUser);
-        $comment = strip_tags($comment);
-
-        if (empty($idUser)) {
-            array_push($errors, 'Entrez un pseudo');
-        }
-
-        if (empty($comment)) {
-            array_push($errors, 'Entrez un commentaire');
-        }
-
-        if (count($errors) == 0) {
-            $comment = addComment($id, $idUser, $comment);
-
-            $succes = 'Votre commentaire a été publié';
-
-            unset($idUser);
-            unset($comment);
-        }
-    }
-
     $article = getArticle($id);
     $user = getUser('pseudo', $_SESSION['pseudo']);
     $count = getCommentsCount($article->id);
@@ -54,6 +27,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     <link rel="stylesheet" href="admin/css/header.css">
     <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/addComment.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -82,33 +56,25 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
             <hr />
 
-            <?php 
-        if (isset($succes)) {
-            echo $succes;
-        }
-        if(!empty($errors)):?>
-            <?php foreach ($errors as $error):?>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="alert alert-danger"><?= $error ?></div>
-                </div>
-            </div>
-            <?php endforeach;?>
-            <?php endif;?>
-
             <div class="comments">
                 <h2>Commentaires :</h2><br>
                 <?php if (isset($_SESSION['pseudo'])):?>
                     <?php if($count->total != 0):?>
-                        <?php 
-                            foreach ($comments as $comment) {
-                            showComment($comment);
-                            }
-                        ?>
+                        <?php foreach ($comments as $comment):?>
+                            <?= showComment($comment) ?>
+                        <?php endforeach?>
                     <?php else:?>
                         <?= noComment() ?>
                     <?php endif?>
-                    <a href="article.php?id=<?= $article->id?>">Envoyer</a>
+                    <br>
+                    <form action="addComment.php?idArticle=<?= $article->id ?>" method="post" class="addComment-form">
+                        <h3>Ajouter un commentaire :</h3><br>
+                        <label for="title">Titre du commentaire : </label><br>
+                        <input type="text" name="title" id="title"><br>
+                        <label for="comment" id="comment-label">Commentaire :</label><br>
+                        <textarea name="comment" id="comment" cols="55" rows="8"></textarea><br>
+                        <input type="submit" value="Envoyer" name="submit" id="submit">
+                    </form>
                 <?php else:?>
                 <!-- Si pas connecté alors : -->
                     <p style="color: red; text-shadow: 1px 1px black;">
@@ -116,15 +82,14 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
                     </p>
                 <?php endif;?>
             </div>
-
         </div>
-        <!-- Footer -->
         <?php include 'admin/includes/footer.php'?>
-        <!-- Login -->
-        <?php include 'admin/includes/login.php'?>
-        <!-- Inscription -->
-        <?php include 'admin/includes/inscription.php'?>
     </div>
+
+    <!-- Login -->
+    <?php include 'admin/includes/login.php'?>
+    <!-- Inscription -->
+    <?php include 'admin/includes/inscription.php'?>
     <!-- Script Log In / Register -->
     <script src="js/main.js"></script>
 </body>
