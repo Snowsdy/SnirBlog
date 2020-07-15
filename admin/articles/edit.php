@@ -93,11 +93,13 @@ if (isset($_POST['submit'])) {
         }
 
         $tmpName = $_FILES['img']['tmp_name'];
-        $uniqName = tronque_chaine($name, 10, '');
+        $uniqName = tronque_chaine($name, 8, '');
         $fileName = ROOT_PATH . "/admin/upload/" . $uniqName . $fileExt;
         $path_img = "admin/upload/" . $uniqName . $fileExt;
 
         $result = move_uploaded_file($tmpName, $fileName);
+        $oldImg = ROOT_PATH . "/$article->path_img";
+        unlink($oldImg);
         if (!$result) {
             array_push($errors, 'transfert échoué');
         }
@@ -136,10 +138,9 @@ if (isset($_POST['submit'])) {
     // Enfin, on ajoute l'article si toutes les conditions respectées :
     if (count($errors) == 0) {
         editArticle($id, $title, $author, $content, $publication_time, $publie, $path_img);
-        header('Location: ' . BASE_URL . '/admin/articles/main.php');
+        header('Location:' . BASE_URL . 'admin/articles/main.php');
     } else {
         $secondsWait = 1;
         header("Refresh:$secondsWait");
     }
-    var_dump($errors);
 }?>
