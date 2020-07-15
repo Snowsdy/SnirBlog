@@ -125,8 +125,21 @@ input[type = "submit"]:hover {
     background-color: green;
 }
 
+/* Apercu.php */
+.comments {
+    padding: 10px;
+}
+
+.comment {
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+/* //Apercu.php */
+
 @media screen and (max-width: 800px) {
-    form {
+    form , .comments{
         position: relative;
         width: 75%;
         right: -22%;

@@ -70,6 +70,10 @@ td a {
     color: orangered;
 }
 
+.apercu {
+    color: yellow;
+}
+
 @media screen and (max-width: 800px) {
     .contenu {
         display: none;

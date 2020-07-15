@@ -55,8 +55,8 @@ if ($_SESSION['admin']) :
                 </li>
                 <li class="tete"><b>Commentaires :</b>
                     <ul>
-                        <li>Edit</li>
                         <li>Remove</li>
+                        <li>Aperçu</li>
                     </ul>
                 </li>
             </ul>

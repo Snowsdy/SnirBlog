@@ -87,7 +87,7 @@ function getArticle($id)
         $data = $req->fetch(PDO::FETCH_OBJ);
         return $data;
     } else {
-        header('Location: index.php');
+        header('Location:' . BASE_URL .'index.php');
     }
     $req->closeCursor();
 }
@@ -249,5 +249,59 @@ function addComment($idArticle, $idUser, $title, $author, $content)
     require ROOT_PATH . '/config/connect.php';
     $req = $bdd->prepare('INSERT INTO comments (idArticle, idUser, title, author, content, publication_time) VALUES (?, ?, ?, ?, ?, NOW())');
     $req->execute(array($idArticle, $idUser, $title, $author, $content));
+    $req->closeCursor();
+}
+
+/**
+ * Fonction qui retourne tous les commentaires de n'importe quel article.
+ */
+function getAllComments()
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('SELECT * FROM comments ORDER BY id ASC');
+    $req->execute();
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->closeCursor();
+}
+
+/**
+ * Fonction qui retourne un commentaire selon son id.
+ */
+function getComment($id)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('SELECT * FROM comments WHERE id = ?');
+    $req->execute(array($id));
+    if ($req->rowCount() == 1) {
+        $data = $req->fetch(PDO::FETCH_OBJ);
+        return $data;
+    } else {
+        header('Location:' . BASE_URL . 'index.php');
+    }
+    $req->closeCursor();
+}
+
+/**
+ * Fonction qui supprime le contenu d'un commentaire (Admins uniquement !).
+ */
+function removeComment($id)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
+    $req->execute(array($id));
+    $req->closeCursor();
+}
+
+/**
+ * Fonction qui retourne les commentaires d'un article selon l'id de celui-ci.
+ */
+function getCommentsByIdArticle($idArticle)
+{
+    require ROOT_PATH . '/config/connect.php';
+    $req = $bdd->prepare('SELECT * FROM comments WHERE idArticle = ?');
+    $req->execute(array($idArticle));
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
     $req->closeCursor();
 }
