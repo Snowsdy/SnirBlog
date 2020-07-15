@@ -23,10 +23,7 @@ Enjoy :)
 -   Pseudo: **darkdevs**
 -   Mdp: **Evan**
 
--   Pseudo: **Coba**
--   Mdp: **Coba2000**
-
--   Pseudo: **fanou**
--   Mdp: **admin**
+-   Pseudo: **Ed**
+-   Mdp: **Edward**
 
 ---
