@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Définition de constantes pour m'aider à me retrouver dans le répertoire.
  */
-define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
-define('BASE_URL', 'http://localhost:8888/');
+define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'] . '/SnirBlog');
+define('BASE_URL', 'http://localhost/SnirBlog/');
 
 /**
  * Fonction qui tronque une chaîne de caractères
@@ -14,7 +15,7 @@ function tronque_chaine($chaine, $lg_max = 60, $end = '...')
     if (strlen($chaine) > $lg_max) {
         $chaine = substr($chaine, 0, $lg_max - strlen($end)) . $end;
         return $chaine;
-    }else {
+    } else {
         return $chaine;
     }
 }
@@ -62,7 +63,7 @@ function showArticle($article)
 {
     print '<div class="post">';
     print '  <div class="inner-post">';
-    print "      <img src=\"" . '/' . $article->path_img . "\"/>";
+    print "      <img src=\"" . $article->path_img . "\"/>";
     print '      <div class="post-info">';
     print "          <h4><a href=\"article.php?id=" . $article->id . "\">" . tronque_chaine($article->title, 22) . "</a></h4>";
     print '          <div>';
@@ -87,7 +88,7 @@ function getArticle($id)
         $data = $req->fetch(PDO::FETCH_OBJ);
         return $data;
     } else {
-        header('Location:' . BASE_URL .'index.php');
+        header('Location:' . BASE_URL . 'index.php');
     }
     $req->closeCursor();
 }
@@ -152,7 +153,6 @@ function getUser($param, $valParam)
         return $data;
     }
     $req->closeCursor();
-
 }
 
 /**

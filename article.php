@@ -1,15 +1,18 @@
-<?php 
+<?php
 session_start();
 require_once 'config/functions.php';
 
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
-    header('Location:'. BASE_URL .'index.php');
-}else {
+    header('Location:' . BASE_URL . 'index.php');
+} else {
     extract($_GET);
     $id = strip_tags($id);
 
     $article = getArticle($id);
-    $user = getUser('pseudo', $_SESSION['pseudo']);
+    if (isset($_SESSION['pseudo'])) {
+        $user = getUser('pseudo', $_SESSION['pseudo']);
+    }
+
     $count = getCommentsCount($article->id);
     if ($count->total != 0) {
         $comments = getComments($article->id);
@@ -22,7 +25,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $article->title?></title>
+    <title><?= $article->title ?></title>
     <link rel="stylesheet" href="admin/css/loginRegister.css">
     <link rel="stylesheet" href="admin/css/header.css">
     <link rel="stylesheet" href="admin/css/footer.css">
@@ -39,11 +42,11 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
 <body>
     <div class="bck">
-        <?php include 'admin/includes/header.php'?>
+        <?php include 'admin/includes/header.php' ?>
         <div class="article">
 
             <div class="pre-info">
-                <h1><?=$article->title?></h1>
+                <h1><?= $article->title ?></h1>
                 <h2>By <?= $article->author ?></h2>
                 <time>Le <?= $article->publication_time ?></time>
             </div>
@@ -51,21 +54,21 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
             <center><img src="<?= $article->path_img ?>"></center>
 
             <div class="content">
-                <p><?=$article->content?></p>
+                <p><?= $article->content ?></p>
             </div>
 
             <hr />
 
             <div class="comments">
                 <h2>Commentaires :</h2><br>
-                <?php if (isset($_SESSION['pseudo'])):?>
-                    <?php if($count->total != 0):?>
-                        <?php foreach ($comments as $comment):?>
+                <?php if (isset($_SESSION['pseudo'])) : ?>
+                    <?php if ($count->total != 0) : ?>
+                        <?php foreach ($comments as $comment) : ?>
                             <?= showComment($comment) ?>
-                        <?php endforeach?>
-                    <?php else:?>
+                        <?php endforeach ?>
+                    <?php else : ?>
                         <?= noComment() ?>
-                    <?php endif?>
+                    <?php endif ?>
                     <br>
                     <form action="addComment.php?idArticle=<?= $article->id ?>" method="post" class="addComment-form">
                         <h3>Ajouter un commentaire :</h3><br>
@@ -75,21 +78,21 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
                         <textarea name="comment" id="comment" cols="55" rows="8"></textarea><br>
                         <input type="submit" value="Envoyer" name="submit" id="submit">
                     </form>
-                <?php else:?>
-                <!-- Si pas connecté alors : -->
+                <?php else : ?>
+                    <!-- Si pas connecté alors : -->
                     <p style="color: red; text-shadow: 1px 1px black;">
                         Vous devez vous connecter afin de voir les commentaires.
                     </p>
-                <?php endif;?>
+                <?php endif; ?>
             </div>
         </div>
-        <?php include 'admin/includes/footer.php'?>
+        <?php include 'admin/includes/footer.php' ?>
     </div>
 
     <!-- Login -->
-    <?php include 'admin/includes/login.php'?>
+    <?php include 'admin/includes/login.php' ?>
     <!-- Inscription -->
-    <?php include 'admin/includes/inscription.php'?>
+    <?php include 'admin/includes/inscription.php' ?>
     <!-- Script Log In / Register -->
     <script src="js/main.js"></script>
 </body>
