@@ -1,154 +1,157 @@
 * {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 body {
-    background: url("../upload/bck.jpg") no-repeat fixed;
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
+  background: url("../upload/bck.jpg") no-repeat fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
 }
 
 .bck {
-    background: rgba(10, 51, 53, 0.7);
+  background: rgba(10, 51, 53, 0.7);
 }
 
 .return_btn {
-    margin-bottom: 5px;
-    border: 2px solid black;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 5px;
-    width: 140px;
-    background-color: #fff;
-    transition: .4s linear;
+  margin-bottom: 5px;
+  border: 2px solid black;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  width: 140px;
+  background-color: #fff;
+  transition: 0.4s linear;
 }
 
 .return_btn a {
-    color: black;
+  color: black;
 }
 
 .return_btn:hover {
-    background-color: red;
+  background-color: red;
 }
 
 .contenu {
-    color: honeydew;
-    text-shadow: 1px 1px black;
-    position: relative;
-    top: -102.85%;
-    right: -18%;
-    height: 0%;
-    width: 81%;
+  color: honeydew;
+  text-shadow: 1px 1px black;
+  position: absolute;
+  top: 108px;
+  right: 48px;
+  width: 81%;
 }
 
-form , textarea, input{
-    text-align: center;
-    padding: 5px;
-    border: 2px solid black;
-    border-radius: 5px;
+form,
+textarea,
+input {
+  text-align: center;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
-form input, form textarea {
-    width: 80%;
-    margin-bottom: 5px;
-    text-align: center;
+form input,
+form textarea {
+  width: 80%;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 20px;
-    margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  margin-bottom: 5px;
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    border: 2px solid black;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border: 2px solid black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
-  
+
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 7px;
-    width: 7px;
-    left: 4px;
-    bottom: 4px;
-    background-color: black;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 7px;
+  width: 7px;
+  left: 4px;
+  bottom: 4px;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
-  
+
 input:checked + .slider {
-    background-color: #2196F3;
+  background-color: #2196f3;
 }
-  
+
 input:checked + .slider:before {
-    -webkit-transform: translateX(42px);
-    -ms-transform: translateX(42px);
-    transform: translateX(42px);
+  -webkit-transform: translateX(42px);
+  -ms-transform: translateX(42px);
+  transform: translateX(42px);
 }
-  
-  /* Rounded sliders */
+
+/* Rounded sliders */
 .slider.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
-  
+
 .slider.round:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-input[type = "submit"] {
-    width: 140px;
-    color: black;
-    font-weight: bold;
-    transition: .4s linear;
+input[type="submit"] {
+  width: 140px;
+  color: black;
+  font-weight: bold;
+  transition: 0.4s linear;
 }
 
-input[type = "submit"]:hover {
-    background-color: green;
+input[type="submit"]:hover {
+  background-color: green;
 }
 
 /* Apercu.php */
 .comments {
-    padding: 10px;
+  padding: 10px;
 }
 
 .comment {
-    border: 2px solid black;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 /* //Apercu.php */
 
 @media screen and (max-width: 800px) {
-    form , .comments{
-        position: relative;
-        width: 75%;
-        right: -22%;
-    }
-    input[type = "file"]{
-        width: 78%;
-    }
-    .return_btn {
-        position: relative;
-        right: -22%;
-    }
+  form,
+  .comments {
+    position: relative;
+    width: 75%;
+    right: -22%;
+  }
+  input[type="file"] {
+    width: 78%;
+  }
+  .return_btn {
+    position: relative;
+    right: -22%;
+  }
 }
