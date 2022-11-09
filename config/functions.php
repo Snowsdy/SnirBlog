@@ -3,8 +3,8 @@
 /**
  * Définition de constantes pour m'aider à me retrouver dans le répertoire.
  */
-define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'] . '/SnirBlog');
-define('BASE_URL', 'http://localhost/SnirBlog/');
+define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
+define('BASE_URL', 'http://localhost:5500/');
 
 /**
  * Fonction qui tronque une chaîne de caractères

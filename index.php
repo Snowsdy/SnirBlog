@@ -8,25 +8,21 @@ $articles = getArticlesPublies();
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnirBlog</title>
-    <link rel="stylesheet" href="admin/css/header.css">
-    <link rel="stylesheet" href="css/accueil.css">
+    <?php require_once 'components/header.php'; ?>
     <link rel="stylesheet" href="admin/css/loginRegister.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/accueil.css">
+    <link rel="stylesheet" href="admin/css/header.css">
     <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io//favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
 </head>
 
 <body>
     <?php
-        include "admin/includes/header.php";
+    include "admin/includes/header.php";
     ?>
 
     <div class="content">
@@ -53,9 +49,9 @@ $articles = getArticlesPublies();
                     <i class="fa fa-chevron-left prev"></i>
 
                     <div class="posts-wrapper">
-                        <?php foreach($articles as $article):?>
-                        <?= showArticle($article) ?>
-                        <?php endforeach;?>
+                        <?php foreach ($articles as $article) : ?>
+                            <?= showArticle($article) ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -65,38 +61,38 @@ $articles = getArticlesPublies();
 
         <div class="post-description">
             <h3>Nos Articles :</h3><br>
-            <?php foreach($articles as $article):?>
-            <div class="article">
-                <img src="<?= $article->path_img ?>" />
-                <div class="article-content">
-                    <h4><?= $article->title ?></h4>
-                    <i class="fa fa-user-o"></i> <?= $article->author?>
-                    &nbsp;
-                    <i class="fa fa-calendar"></i> <?= $article->publication_time?>
-                    <p><?= tronque_chaine($article->content)?></p>
-                    <a href="article.php?id=<?= $article->id?>" class="continued">Lire la suite</a>
-                    <br><br><br>
+            <?php foreach ($articles as $article) : ?>
+                <div class="article">
+                    <img src="<?= $article->path_img ?>" />
+                    <div class="article-content">
+                        <h4><?= $article->title ?></h4>
+                        <i class="fa fa-user-o"></i> <?= $article->author ?>
+                        &nbsp;
+                        <i class="fa fa-calendar"></i> <?= $article->publication_time ?>
+                        <p><?= tronque_chaine($article->content) ?></p>
+                        <a href="article.php?id=<?= $article->id ?>" class="continued">Lire la suite</a>
+                        <br><br><br>
+                    </div>
                 </div>
-            </div>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </div>
     </div>
 
     <!-- Login -->
 
-    <?php 
-        include 'admin/includes/login.php';
+    <?php
+    include 'admin/includes/login.php';
     ?>
 
     <!-- inscription -->
 
     <?php
-        include 'admin/includes/inscription.php'
+    include 'admin/includes/inscription.php'
     ?>
 
     <!-- FOOTER -->
     <?php
-        include 'admin/includes/footer.php'
+    include 'admin/includes/footer.php'
     ?>
 
     <!-- JQuery -->
