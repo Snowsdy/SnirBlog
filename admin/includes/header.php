@@ -16,7 +16,7 @@
             <a id="signUp_btn">Créer un compte</a>
         <?php endif; ?>
         <a href="<?= BASE_URL . "index.php" ?>">Accueil</a>
-        <?php if (isset($_SESSION['admin'])) : ?>
+        <?php if (isset($_SESSION['admin']) && $_SESSION['admin']) : ?>
             <a href="<?= BASE_URL . "admin/index.php" ?>">Tableau de bord</a>
         <?php endif; ?>
         <a href="#">A propos</a>
