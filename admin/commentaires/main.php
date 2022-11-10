@@ -39,40 +39,44 @@ if (isset($_SESSION['admin']) && $_SESSION['admin']) : ?>
                         <th colspan="2">Actions</th>
                     </thead>
 
-                    <?php foreach ($comments as $comment) : ?>
+                    <?php if (empty($comments)) : ?>
+                        <h2 style="position: absolute;top:100%;right:50%; color: #B22222;">No comments</h2>
+                    <?php else : ?>
+                        <?php foreach ($comments as $comment) : ?>
 
-                        <tbody>
-                            <tr>
-                                <td><?= $comment->id ?></td>
-                                <td>
-                                    <?php
-                                    $article = getArticle($comment->idArticle);
-                                    echo tronque_chaine($article->title, 15, '');
-                                    ?>
-                                </td>
-                                <td><?= $comment->title ?></td>
-                                <td>
-                                    <?php
-                                    $user = getUser('id', $comment->idUser);
-                                    echo $user->pseudo;
-                                    ?>
-                                </td>
-                                <td><?= tronque_chaine($comment->content, 15) ?></td>
-                                <td><?= $comment->publication_time ?></td>
-                                <td>
-                                    <a href="apercu.php?idArticle=<?= $comment->idArticle ?>" class="apercu">
-                                        Aperçu
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="delete.php?id=<?= $article->id ?>" class="delete">
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
+                            <tbody>
+                                <tr>
+                                    <td><?= $comment->id ?></td>
+                                    <td>
+                                        <?php
+                                        $article = getArticle($comment->idArticle);
+                                        echo tronque_chaine($article->title, 15, '');
+                                        ?>
+                                    </td>
+                                    <td><?= $comment->title ?></td>
+                                    <td>
+                                        <?php
+                                        $user = getUser('id', $comment->idUser);
+                                        echo $user->pseudo;
+                                        ?>
+                                    </td>
+                                    <td><?= tronque_chaine($comment->content, 15) ?></td>
+                                    <td><?= $comment->publication_time ?></td>
+                                    <td>
+                                        <a href="apercu.php?idArticle=<?= $comment->idArticle ?>" class="apercu">
+                                            Aperçu
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="delete.php?id=<?= $comment->id ?>" class="delete">
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
 
-                    <?php endforeach ?>
+                        <?php endforeach ?>
+                    <?php endif; ?>
                 </table>
             </div>
             <?php include '../includes/footer.php' ?>
