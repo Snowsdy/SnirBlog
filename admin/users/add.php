@@ -1,73 +1,74 @@
 <?php
 session_start();
 require_once '../../config/functions.php';
-if ($_SESSION['admin']) {
+if (isset($_SESSION['admin']) && $_SESSION['admin']) {
 ?>
 
-<html lang="fr">
+    <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout d'un nouvel article</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/edit.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/left_menu.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ajout d'un nouvel article</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/edit.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/left_menu.css">
+    </head>
 
-<body>
-    <div class="bck">
-        <?php include ROOT_PATH . '/admin/includes/header.php'?>
-        <?php include ROOT_PATH . '/admin/includes/left_menu.php'?>
+    <body>
+        <div class="bck">
+            <?php include ROOT_PATH . '/admin/includes/header.php' ?>
+            <?php include ROOT_PATH . '/admin/includes/left_menu.php' ?>
 
-        <div class="contenu">
-            <!-- Formulaire -->
-            <button class="return_btn"><a href="main.php">Retour</a></button>
-            <form action="add.php" method="post">
-                <h1>Ajout d'un nouvel utilisateur</h1>
-                <br>
-                <label for="nom">Nom :</label><br>
-                <input type="text" name="nom" id="nom">
-                <br>
-                <label for="prenom">Prénom :</label><br>
-                <input type="text" name="prenom" id="prenom">
-                <br>
-                <label for="pseudo">Pseudo :</label><br>
-                <input type="text" name="pseudo" id="pseudo">
-                <br>
-                <label for="email">Email :</label><br>
-                <input type="email" name="email" id="email">
-                <br>
-                <label for="mdp">Mot de passe :</label><br>
-                <input type="password" name="mdp" id="mdp">
-                <br>
-                <label for="confMdp">Confirmation :</label><br>
-                <input type="password" name="confMdp" id="confMdp">
-                <br>
-                <label for="admin">Admin ?</label><br>
-                <label class="switch">
-                    <input type="checkbox" name="admin" id="admin">
-                    <span class="slider round"></span>
-                </label>
-                <br>
-                <input type="submit" value="Ajouter" name="submit" id="submit">
-            </form>
+            <div class="contenu">
+                <!-- Formulaire -->
+                <button class="return_btn"><a href="main.php">Retour</a></button>
+                <form action="add.php" method="post">
+                    <h1>Ajout d'un nouvel utilisateur</h1>
+                    <br>
+                    <label for="nom">Nom :</label><br>
+                    <input type="text" name="nom" id="nom">
+                    <br>
+                    <label for="prenom">Prénom :</label><br>
+                    <input type="text" name="prenom" id="prenom">
+                    <br>
+                    <label for="pseudo">Pseudo :</label><br>
+                    <input type="text" name="pseudo" id="pseudo">
+                    <br>
+                    <label for="email">Email :</label><br>
+                    <input type="email" name="email" id="email">
+                    <br>
+                    <label for="mdp">Mot de passe :</label><br>
+                    <input type="password" name="mdp" id="mdp">
+                    <br>
+                    <label for="confMdp">Confirmation :</label><br>
+                    <input type="password" name="confMdp" id="confMdp">
+                    <br>
+                    <label for="admin">Admin ?</label><br>
+                    <label class="switch">
+                        <input type="checkbox" name="admin" id="admin">
+                        <span class="slider round"></span>
+                    </label>
+                    <br>
+                    <input type="submit" value="Ajouter" name="submit" id="submit">
+                </form>
+            </div>
+
+            <?php include ROOT_PATH . '/admin/includes/footer.php' ?>
         </div>
+    </body>
 
-        <?php include ROOT_PATH . '/admin/includes/footer.php'?>
-    </div>
-</body>
-
-</html>
+    </html>
 
 <?php } else {
     header('Location:' . BASE_URL . 'index.php');
-}?>
+    exit();
+} ?>
 
 <?php
 
@@ -120,6 +121,7 @@ if (isset($_POST['submit'])) {
     if (count($errors) == 0) {
         addUser($nom, $prenom, $email, $pseudo, $mdp, $admin);
         header('Location: ' . BASE_URL . 'admin/users/main.php');
+        die();
     } else {
         $secondsWait = 1;
         header("Refresh:$secondsWait");

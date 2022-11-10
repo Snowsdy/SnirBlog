@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once 'config/functions.php';
 
@@ -8,17 +8,18 @@ $erreur = 0;
 
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('Location:'. BASE_URL .'index.php');
+    header('Location:' . BASE_URL . 'index.php');
+    die();
 }
 
 if (isset($_POST['login_button'])) {
-    if(isset($_POST['pseudo']) && isset($_POST['mdp'])){
+    if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
         $pseudo = $_POST['pseudo'];
         foreach ($users as $user) {
             $confMdp = password_verify($_POST['mdp'], $user->mdp);
             if ($pseudo == $user->pseudo && $confMdp) {
                 $erreur++;
-            
+
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nom'] = $user->nom;
                 $_SESSION['prenom'] = $user->prenom;
@@ -27,13 +28,13 @@ if (isset($_POST['login_button'])) {
                 $_SESSION['admin'] = $user->admin;
                 $_SESSION['pseudo'] = $user->pseudo;
 
-                header('Location:'. BASE_URL .'index.php');
+                header('Location:' . BASE_URL . 'index.php');
             }
         }
         if ($erreur == 0) {
             array_push($_SESSION['erreurLogin'], 'Pseudo et/ou Mot de passe incorect');
-            header('Location:'. BASE_URL .'index.php');
+            header('Location:' . BASE_URL . 'index.php');
+            die();
         }
     }
 }
-?>

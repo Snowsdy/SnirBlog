@@ -4,7 +4,7 @@ require_once '../../config/functions.php';
 
 $articles = getArticles();
 
-if ($_SESSION['admin']) : ?>
+if (isset($_SESSION['admin']) && $_SESSION['admin']) : ?>
 
     <html lang="fr">
 
@@ -78,5 +78,6 @@ if ($_SESSION['admin']) : ?>
     </html>
 
 <?php else : ?>
-    <?php header('Location: ' . BASE_URL . 'index.php'); ?>
+    <?php header('Location: ' . BASE_URL . 'index.php');
+    exit(); ?>
 <?php endif; ?>

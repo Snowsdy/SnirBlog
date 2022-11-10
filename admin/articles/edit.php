@@ -4,6 +4,7 @@ require_once '../../config/functions.php';
 
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     header('Location:' . BASE_URL . 'index.php');
+    exit();
 } else {
     extract($_GET);
     $id = strip_tags($id);
@@ -11,71 +12,71 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     $article = getArticle($id);
 }
 
-if ($_SESSION['admin']) :?>
+if (isset($_SESSION['admin']) && $_SESSION['admin']) : ?>
 
-<html lang="fr">
+    <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modification - <?=$article->title?></title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/edit.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/left_menu.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modification - <?= $article->title ?></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/edit.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/left_menu.css">
+    </head>
 
-<body>
-    <div class="bck">
-        <?php include ROOT_PATH . '/admin/includes/header.php'?>
-        <?php include ROOT_PATH . '/admin/includes/left_menu.php'?>
+    <body>
+        <div class="bck">
+            <?php include ROOT_PATH . '/admin/includes/header.php' ?>
+            <?php include ROOT_PATH . '/admin/includes/left_menu.php' ?>
 
-        <div class="contenu">
-            <button class="return_btn"><a href="main.php">Retour</a></button>
-            <!-- Formulaire -->
-            <form action="edit.php?id=<?= $id ?>" method="post" enctype="multipart/form-data">
-                <h1>Modification</h1>
-                <br>
-                <label for="title">Titre de l'article :</label><br>
-                <input type="text" name="title" id="title" value="<?=$article->title?>">
-                <br>
-                <label for="author">Auteur de l'article :</label><br>
-                <input type="text" name="author" id="author" value="<?=$article->author?>">
-                <br>
-                <label for="content">Contenu :</label><br>
-                <!-- Penser à ajouter un éditeur du style stackedit -->
-                <textarea name="content" id="content" rows="6"><?=$article->content?></textarea>
-                <br>
-                <label for="publication_time">Date de publication :</label><br>
-                <input type="text" name="publication_time" placeholder="AAAA-MM-JJ HH-mm-SS" id="publication_time"
-                    value="<?=$article->publication_time?>">
-                <br>
-                <label for="publie">Publié ?</label><br>
-                <label class="switch">
-                    <input type="checkbox" name="publie" id="publie">
-                    <span class="slider round"></span>
-                </label>
-                <br>
-                <label for="img">Image de l'article :</label><br>
-                <input type="file" name="img" id="img" accept="image/png,image/jpeg,image/gif,image/jpg">
-                <br>
-                <input type="submit" value="Modifier" name="submit" id="submit">
-            </form>
+            <div class="contenu">
+                <button class="return_btn"><a href="main.php">Retour</a></button>
+                <!-- Formulaire -->
+                <form action="edit.php?id=<?= $id ?>" method="post" enctype="multipart/form-data">
+                    <h1>Modification</h1>
+                    <br>
+                    <label for="title">Titre de l'article :</label><br>
+                    <input type="text" name="title" id="title" value="<?= $article->title ?>">
+                    <br>
+                    <label for="author">Auteur de l'article :</label><br>
+                    <input type="text" name="author" id="author" value="<?= $article->author ?>">
+                    <br>
+                    <label for="content">Contenu :</label><br>
+                    <!-- Penser à ajouter un éditeur du style stackedit -->
+                    <textarea name="content" id="content" rows="6"><?= $article->content ?></textarea>
+                    <br>
+                    <label for="publication_time">Date de publication :</label><br>
+                    <input type="text" name="publication_time" placeholder="AAAA-MM-JJ HH-mm-SS" id="publication_time" value="<?= $article->publication_time ?>">
+                    <br>
+                    <label for="publie">Publié ?</label><br>
+                    <label class="switch">
+                        <input type="checkbox" name="publie" id="publie">
+                        <span class="slider round"></span>
+                    </label>
+                    <br>
+                    <label for="img">Image de l'article :</label><br>
+                    <input type="file" name="img" id="img" accept="image/png,image/jpeg,image/gif,image/jpg">
+                    <br>
+                    <input type="submit" value="Modifier" name="submit" id="submit">
+                </form>
+            </div>
+
+            <?php include ROOT_PATH . '/admin/includes/footer.php' ?>
         </div>
+    </body>
 
-        <?php include ROOT_PATH . '/admin/includes/footer.php'?>
-    </div>
-</body>
+    </html>
 
-</html>
-
-<?php else:?>
-    <?php header('Location: ' . BASE_URL . 'index.php')?>
-<?php endif?>
+<?php else : ?>
+    <?php header('Location: ' . BASE_URL . 'index.php');
+    exit(); ?>
+<?php endif ?>
 
 <?php
 // Upload de l'image & déplacement dans le dossier 'upload/' :
@@ -139,8 +140,9 @@ if (isset($_POST['submit'])) {
     if (count($errors) == 0) {
         editArticle($id, $title, $author, $content, $publication_time, $publie, $path_img);
         header('Location:' . BASE_URL . 'admin/articles/main.php');
+        exit();
     } else {
         $secondsWait = 1;
         header("Refresh:$secondsWait");
     }
-}?>
+} ?>
