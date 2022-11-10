@@ -17,20 +17,25 @@ let btn = document.getElementById('button');
 let span = document.getElementsByClassName("close")[0];
 let span2 = document.getElementsByClassName("close")[1];
 
-connexion_btn.onclick = function(){
-    connexion.style.display = "flex";
-}
-inscription_btn.addEventListener("click", function(){
-    inscription.style.display = "flex";
-})
 
-span.onclick = function() {
+if (connexion_btn) {
+    connexion_btn.onclick = function () {
+        connexion.style.display = "flex";
+    }
+}
+
+if (inscription_btn) {
+    inscription_btn.addEventListener("click", function () {
+        inscription.style.display = "flex";
+    })
+}
+
+span.onclick = function () {
     connexion.style.display = "none";
 }
 
-span2.onclick = function() {
+span2.onclick = function () {
     inscription.style.display = "none";
 }
-
 
 password.style.display = "none";
