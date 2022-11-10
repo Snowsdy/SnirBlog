@@ -16,14 +16,15 @@ Enjoy :)
 
 ---
 
-- Pseudo: **Snowsdy**
-- Mdp: **Snowsdy**
+#### Admin account
 
-- Pseudo: **darkdevs**
-- Mdp: **Evan**
+- Pseudo: **admin**
+- Mdp: **admin**
 
-- Pseudo: **Ed**
-- Mdp: **Edward**
+#### User account
+
+- Pseudo: **user**
+- Mdp: **user**
 
 ---
 
@@ -56,3 +57,7 @@ try {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 ```
+
+### Schema_SQL
+
+First, create a database named `blog`, then go to `import` and choose `blog.sql.zip` to import a little db.

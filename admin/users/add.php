@@ -110,18 +110,18 @@ if (isset($_POST['submit'])) {
         die();
     }
 
-    $admin = $_POST['admin'];
-    if ($admin == NULL) {
-        $admin = 0;
+    $admin = isset($_POST['admin']);
+    if ($admin) {
+        $admin = $_POST['admin'];
     } else {
-        $admin = 1;
+        $admin = 0;
     }
 
     // Enfin, on ajoute l'article si toutes les conditions respectées :
     if (count($errors) == 0) {
         addUser($nom, $prenom, $email, $pseudo, $mdp, $admin);
         header('Location: ' . BASE_URL . 'admin/users/main.php');
-        die();
+        exit();
     } else {
         $secondsWait = 1;
         header("Refresh:$secondsWait");
